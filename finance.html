@@ -171,6 +171,32 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
 .feat p { margin: 0; color: #cfd2db; font-size: 15px; flex: 1; }
 .feat .mono { color: var(--glow); }
 @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr; } }
+
+.fp { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; padding: 56px 0; border-top: 1px solid var(--line); margin-top: 8px; }
+.fp.solo { grid-template-columns: 1fr; }
+.fp-txt { min-width: 0; }
+.fp .fp-kick { color: var(--glow); margin: 0 0 10px; }
+.fp h3 { font-size: clamp(28px, 3.6vw, 46px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 16px; }
+.fp h3.fp-sub { font-size: 22px; margin: 26px 0 8px; letter-spacing: -.01em; }
+.fp p { color: #d4d6de; font-size: 17px; margin: 0 0 14px; max-width: 640px; }
+.fp ul { margin: 0 0 14px; padding-left: 20px; color: #d4d6de; max-width: 640px; }
+.fp li { margin: 6px 0; }
+.fp h4 { margin: 20px 0 6px; }
+.fp h5 { font-size: 15px; margin: 18px 0 6px; font-weight: 700; color: var(--text); }
+.fp .fine { color: var(--dim); font-size: 14px; }
+.fp-meta { display: flex; flex-wrap: wrap; gap: 6px 26px; margin: 0 0 20px; padding: 0 0 16px; border-bottom: 1px solid var(--line); }
+.fp-meta div { min-width: 0; }
+.fp-meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.fp-meta dd { margin: 2px 0 0; font-size: 14px; color: #d4d6de; }
+.fp .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.fp .tag { border-color: var(--line); color: var(--text); }
+.fp .sheets { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.fp .sheets li { border-bottom-color: var(--line); }
+.fp .sheets a { color: var(--glow); }
+.fp .sheets .mono { color: var(--dim); }
+.fp-stats { position: sticky; top: 84px; }
+.fp-stats .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 900px) { .fp { grid-template-columns: 1fr; gap: 28px; padding: 44px 0; } .fp-stats { position: static; } }
 @media (max-width: 900px) {
   .profile-grid, .beyond { grid-template-columns: 1fr; gap: 36px; }
   .stage-wrap { grid-template-columns: 1fr; }
@@ -210,8 +236,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     <nav aria-label="Primary">
       <ul>
         <li class="opt"><a href="#journey">Where I've been</a></li>
-        <li class="opt"><a href="#featured">Featured</a></li>
-        <li><a href="#works">Works</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -228,7 +253,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
       <h1 id="heroTitle">Tilak<br>Kamani.</h1>
       <p class="lede">Finance student who builds. Deal models, equity and market research, and investor-facing work, each checked against the numbers.</p>
       <div class="actions">
-        <a class="btn solid" href="#works">View works</a>
+        <a class="btn solid" href="#projects">View projects</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -299,245 +324,160 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     </div>
   </section>
 
-  <section class="dark-sec" id="featured" aria-labelledby="featured-h">
+  <section class="dark-sec" id="projects" aria-labelledby="projects-h">
     <div class="wrap">
-      <p class="mono sec-label reveal">02 · Featured project</p>
-      <h2 class="glow reveal" id="featured-h">Featured<br>project</h2>
-      <div class="profile-grid reveal">
-        <div>
-          <h3 style="font-size:clamp(30px,4vw,48px);letter-spacing:-.02em;margin-bottom:14px">Deal models</h3>
-          <p>A merger model for Paramount Skydance's acquisition of Warner Bros. Discovery, and a leveraged buyout of Academy Sports + Outdoors, both built from public filings and announced terms.</p>
-          <p>Every assumption is written down with its source, so a reviewer can trace each number.</p>
-          <div class="actions" style="margin-top:22px"><a class="btn solid" href="#works" data-open="0">Open the case study</a></div>
-        </div>
-        <div class="stat-grid">
-          <div class="stat"><b>$110B</b><span>WBD enterprise value</span></div>
-          <div class="stat"><b>5.5x</b><span>LBO entry EV/EBITDA</span></div>
-          <div class="stat"><b>4.4x</b><span>LBO gross MOIC, base case</span></div>
-          <div class="stat"><b>34%</b><span>LBO gross IRR, base case</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="paper" id="works" aria-labelledby="works-h">
-    <div class="wrap">
-      <div class="works-top">
-        <div>
-          <p class="mono sec-label reveal">03 · Works</p>
-          <h2 class="reveal" id="works-h">Works '26</h2>
-        </div>
-        <p class="note reveal">Eleven projects across deals, research and investor-facing work. Drag the ring, use the arrows or pick from the list. The details open below.</p>
-      </div>
-
-      <div class="stage-wrap reveal">
-        <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Projects">
-          <div class="center-label" aria-hidden="true"><b>WORKS '26</b><span class="mono">Drag to cycle</span></div>
-          <div class="ring" id="ring">
-            <button class="card" type="button" style="--i:0;--h:42" data-n="01"><span class="k">Finance</span><span><span class="t">Deal models</span><span class="s">Paramount–WBD merger, Academy LBO</span></span></button>
-            <button class="card" type="button" style="--i:1;--h:140" data-n="02"><span class="k">Research</span><span><span class="t">Climate and credit risk</span><span class="s">Indian agribusiness, 197 firms</span></span></button>
-            <button class="card" type="button" style="--i:2;--h:200" data-n="03"><span class="k">Research</span><span><span class="t">Tail-risk spillovers</span><span class="s">Climate, carbon and farm markets</span></span></button>
-            <button class="card" type="button" style="--i:3;--h:330" data-n="04"><span class="k">Equity research</span><span><span class="t">Indian jewellery</span><span class="s">55 pages, three DCFs</span></span></button>
-            <button class="card" type="button" style="--i:4;--h:210" data-n="05"><span class="k">Investment thesis</span><span><span class="t">AI data centers</span><span class="s">Power, cooling and the startups solving them</span></span></button>
-            <button class="card" type="button" style="--i:5;--h:95" data-n="06"><span class="k">Investment thesis</span><span><span class="t">Battery swapping</span><span class="s">Market size, competition and policy</span></span></button>
-            <button class="card" type="button" style="--i:6;--h:12" data-n="07"><span class="k">Sector research</span><span><span class="t">Defence and aerospace</span><span class="s">Where the money went, what fits</span></span></button>
-            <button class="card" type="button" style="--i:7;--h:160" data-n="08"><span class="k">AI automation</span><span><span class="t">LightGrid agents</span><span class="s">Documentation, Momentum, Sales</span></span></button>
-            <button class="card" type="button" style="--i:8;--h:18" data-n="09"><span class="k">Product build</span><span><span class="t">Tourlink</span><span class="s">Multi-tenant ticketing platform</span></span></button>
-            <button class="card" type="button" style="--i:9;--h:275" data-n="10"><span class="k">Internship</span><span><span class="t">Kalpi</span><span class="s">Product audit and portfolio analytics</span></span></button>
-            <button class="card" type="button" style="--i:10;--h:350" data-n="11"><span class="k">Hackathon</span><span><span class="t">Nomura</span><span class="s">Rate curves and trade analytics</span></span></button>
-          </div>
-        </div>
-        <ul class="side" id="side" aria-label="Project list">
-          <li><button type="button">Deal models</button></li>
-          <li><button type="button">Climate and credit risk</button></li>
-          <li><button type="button">Tail-risk spillovers</button></li>
-          <li><button type="button">Indian jewellery</button></li>
-          <li><button type="button">AI data centers</button></li>
-          <li><button type="button">Battery swapping</button></li>
-          <li><button type="button">Defence and aerospace</button></li>
-          <li><button type="button">LightGrid agents</button></li>
-          <li><button type="button">Tourlink</button></li>
-          <li><button type="button">Kalpi</button></li>
-          <li><button type="button">Nomura</button></li>
-        </ul>
-      </div>
-      <div class="controls">
-        <button class="ctl" id="prev" type="button" aria-label="Previous project">←</button>
-        <span class="mono" id="counter" aria-live="polite">01 / 11</span>
-        <button class="ctl" id="next" type="button" aria-label="Next project">→</button>
-      </div>
-
-      <div class="detail" id="detail" aria-live="polite">
-
-        <article class="proj" data-title="Deal models">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">01</div><div><h3>Deal models</h3><p class="mono kick">Finance · M&amp;A and LBO</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Financial models in Excel</dd></div><div><dt>Status</dt><dd>Case studies</dd></div><div><dt>Inputs</dt><dd>Public filings and deal announcements</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>Two models of the kind an investment banking or private equity team builds: a merger model for a live strategic acquisition, and a leveraged buyout of a public retailer.</p>
-              <h5>Paramount Skydance and Warner Bros. Discovery</h5>
-              <ul>
+      <p class="mono sec-label reveal">02 · Projects</p>
+      <h2 class="glow reveal" id="projects-h">Featured<br>projects</h2>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Finance · M&amp;A and LBO</p>
+          <h3>Deal models</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Financial models in Excel</dd></div><div><dt>Status</dt><dd>Case studies</dd></div><div><dt>Inputs</dt><dd>Public filings and deal announcements</dd></div></dl>
+          <p>Two models of the kind an investment banking or private equity team builds: a merger model for a live strategic acquisition, and a leveraged buyout of a public retailer.</p>
+          <h5>Paramount Skydance and Warner Bros. Discovery</h5>
+          <ul>
                 <li>Valued the deal at $110B enterprise value and $81B equity value, at $31.00 per share in cash.</li>
                 <li>Sources and uses: $47B of equity funding against WBD's existing debt of about $33B.</li>
                 <li>Accretion and dilution across financing and synergy scenarios, with $6B+ of cost synergies.</li>
               </ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Every assumption is written down with its source, so a reviewer can trace each number. The merger model is built around the announced deal terms. The LBO takes its inputs from the company's 10-K and 10-Q.</p>
-              <h5>Academy Sports + Outdoors take-private</h5>
-              <ul>
+          <h4>Approach</h4>
+          <p>Every assumption is written down with its source, so a reviewer can trace each number. The merger model is built around the announced deal terms. The LBO takes its inputs from the company's 10-K and 10-Q.</p>
+          <h5>Academy Sports + Outdoors take-private</h5>
+          <ul>
                 <li>20% premium ($58.19 per share), 5.5x entry EV/EBITDA, $3.8B enterprise value.</li>
                 <li>Debt at 4.5x LTM EBITDA ($3.1B), a five-year operating model, mandatory amortisation and a 100% cash sweep.</li>
                 <li>At a 6.0x exit, the base case clears both hurdles (2.0x MOIC, 20% IRR). Recommendation: proceed to confirmatory diligence.</li>
               </ul>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="stat"><b>$110B</b><span>WBD enterprise value</span></div>
-            <div class="stat"><b>5.5x</b><span>LBO entry EV/EBITDA</span></div>
-            <div class="stat"><b>4.4x</b><span>LBO gross MOIC, base case</span></div>
-            <div class="stat"><b>34%</b><span>LBO gross IRR, base case</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Climate and credit risk">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">02</div><div><h3>Climate risk and credit risk in Indian agribusiness</h3><p class="mono kick">Research · Under journal review</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Co-authored, under journal review. A panel of 197 firms (1,964 firm-years, 2015 to 2024), with plant locations matched to daily rainfall data. I did the econometric and machine learning modelling: a fixed-effects panel regression and a causal forest. Highly leveraged firms saw a 12.7 percentage point larger drop in net working capital during droughts.</p>
-            <div class="tags"><span class="tag">Panel data</span><span class="tag">Causal forest</span><span class="tag">Credit risk</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Tail-risk spillovers">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">03</div><div><h3>Climate, carbon and agricultural markets</h3><p class="mono kick">Research · Co-authored</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Co-authored a study of tail-risk spillovers, using CAViaR value-at-risk series and a quantile VAR with generalised forecast-error variance decomposition, on 10 years of Bloomberg and MSCI index data. Downside connectedness peaked at 87.88% in crises, with climate indices transmitting risk and agricultural markets receiving it. My part was the modelling.</p>
-            <div class="tags"><span class="tag">CAViaR</span><span class="tag">Quantile VAR</span><span class="tag">Tail risk</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Indian jewellery">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">04</div><div><h3>Equity research on Indian jewellery</h3><p class="mono kick">Equity research · Nov 2025</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Co-built a 55-page report on Kalyan Jewellers, PC Jeweller and Goldiam International, with DCF valuations that state their discount-rate, growth and cash-flow assumptions. Kalyan looked overvalued (DCF value ₹143 against a ₹496 price). PC Jeweller (₹55 against ₹11.65) and Goldiam (₹422 against ₹380) looked undervalued.</p>
-            <div class="tags"><span class="tag">DCF</span><span class="tag">Ratio analysis</span></div>
-          </div>
-        
-          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1Txq_a40fWsAhMUXrSX0UwPxq06YIsABf/view" target="_blank" rel="noopener">Equity research report</a><span class="mono">PDF</span></li><li><a href="https://drive.google.com/file/d/1eRbRIdtuqnKbWBrni0j60ez5eUYjNSJq/view" target="_blank" rel="noopener">DCF valuation sheet</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
-        </article>
-
-        <article class="proj" data-title="AI data centers">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">05</div><div><h3>AI data centers: investment thesis and market sizing</h3><p class="mono kick">Investment thesis · India · 2026</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Thesis, market model, competitor map</dd></div><div><dt>Sector</dt><dd>Data-center infrastructure and energy</dd></div><div><dt>Output</dt><dd>Word thesis and two Excel sheets</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>A thesis on where the money is in India's AI data-center build-out. AI racks draw 50 to 150 kW against 10 to 15 kW for older ones, and the grid, cooling and water cannot keep up. I argue the best returns sit in the B2B startups that fix those limits, not in the buildings.</p>
-              <h5>What I built</h5>
-              <ul><li>Four startup layers ranked: liquid cooling, battery storage with tariff arbitrage, captive renewable power, and pre-permitted powered land.</li><li>Financial case for each: liquid cooling adds 40% to 60% to the cooling capex but cuts cooling power by 30% to 40%; taking PUE from 1.55 to 1.20 saves about ₹3.06 crore per MW a year.</li><li>Valuation view: 15x to 18x EV/EBITDA for air-cooled sites against 22x to 26x for liquid-cooled sites with captive power and storage.</li><li>Risks and mitigations, and deal structure: performance-linked tranches and service-based revenue models.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>The market model sizes each layer as TAM, SAM and SOM, with every row tied to a stated source or a stated assumption. The competitor sheet maps eight players, from listed cooling makers to bootstrapped startups, by funding, founders and moat.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>$9.3B</b><span>cooling TAM by FY31</span></div><div class="stat"><b>$1.0B</b><span>cooling SOM by FY31, 25% startup capture</span></div><div class="stat"><b>$12.2B</b><span>storage TAM by FY31</span></div><div class="stat"><b>$3.0B</b><span>powered-land TAM by FY31</span></div></div>
-          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1LGPcy__9D7seduhkLD4t0ItRZFx2Q3K2/view" target="_blank" rel="noopener">Investment thesis on AI data centers</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/file/d/12fEe1AC_O2IQCMZIbOZ91xQtZOJs0VIl/view" target="_blank" rel="noopener">Market sizing of ancillary companies</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/file/d/1b5yHgfl3yd0sKaiFCRDnkOMOuY0TeORU/view" target="_blank" rel="noopener">Competitive analysis</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
-        </article>
-
-        <article class="proj" data-title="Battery swapping">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">06</div><div><h3>Battery swapping in India: thesis, sizing and policy</h3><p class="mono kick">Investment thesis · Battery-as-a-Service</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Thesis, market model, competitor map, policy review</dd></div><div><dt>Sector</dt><dd>Electric mobility</dd></div><div><dt>Output</dt><dd>Doc, two Google Sheets and a policy note</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>An investment thesis on Battery-as-a-Service, with a bottom-up market model for battery swapping in India, a map of the incumbent players, and a review of the government policies that decide whether the market opens up.</p>
-              <h5>What I built</h5>
-              <ul><li>Bottom-up market model: addressable market grows from ₹4,362 crore in 2023 to ₹1,64,000 crore by 2030, built from vehicle sales, pricing and battery-cost data across public sources.</li><li>Competitive landscape of incumbent leaders: Ola, Hero, Ampere, Ather, TVS and Bajaj.</li><li>Policy review: the New EV Policy 2024, EMPS 2024, the draft Battery Swapping Policy, FAME-II and the ACC battery incentive scheme (about $2.5B for 50 GWh of cell capacity).</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Policy is the swing factor here. The draft swapping policy proposes battery standardisation, and startups worry that standards favour big players, so I treat policy certainty as a risk in the thesis and not as background.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>₹4,362 Cr</b><span>market in 2023</span></div><div class="stat"><b>₹1,64,000 Cr</b><span>market by 2030</span></div><div class="stat"><b>6</b><span>incumbents mapped</span></div></div>
-          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/18ctVVAgp-0hsZWzOxphZErKIHXGsyZFN/view" target="_blank" rel="noopener">Battery-as-a-Service investment thesis</a><span class="mono">Doc</span></li><li><a href="https://drive.google.com/file/d/1t5JyUhNDAIwF6MOvD8dTBSbbihyi0vMY/view" target="_blank" rel="noopener">Market sizing for battery swapping</a><span class="mono">Sheet</span></li><li><a href="https://drive.google.com/file/d/1UIUhS9mSRbET-_cvn0h82MH6O403oR7C/view" target="_blank" rel="noopener">Competitive landscape</a><span class="mono">Sheet</span></li><li><a href="https://drive.google.com/file/d/16ZZsl5dOwLzTOqf62dScbbQXMsG9c-xR/view" target="_blank" rel="noopener">Government policies</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
-        </article>
-
-        <article class="proj" data-title="Defence and aerospace">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">07</div><div><h3>Defence and aerospace: sector research</h3><p class="mono kick">Sector research · India · 2026</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Sector research for an early-stage fund</dd></div><div><dt>Sector</dt><dd>Defence tech and space tech</dd></div><div><dt>Output</dt><dd>Research report</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>Sector research written from an investor's point of view: why Indian defence and aerospace opened to private capital, where the money has gone, and which sub-sectors suit an early-stage, manufacturing-focused fund.</p>
-              <h5>What I built</h5>
-              <ul><li>Policy turning points: DAP 2020, iDEX, the simplified Make-I and Make-II routes, higher FDI limits, and 25% of the defence R&amp;D budget opened to private players.</li><li>Capital-flow table of ten recent rounds, from a $100M drone round to a $1.5M counter-drone seed.</li><li>Five sub-sectors scored against the fund's criteria: component-level space tech and dual-use technology fit best, assembly-led drone makers and pure-software cyber fit worst.</li><li>Two companies to watch, each with the one diligence question I would ask first.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>I graded sectors against what an early-stage fund can actually back: proprietary components, export potential, and unit economics that improve with scale. A sector can be hot and still be a poor fit, and the report says so.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>10</b><span>funding rounds tabulated</span></div><div class="stat"><b>5</b><span>sub-sectors graded</span></div><div class="stat"><b>2</b><span>companies profiled</span></div></div>
-          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1KnmQfjBLlTrJMzRptF5_UmWlP1pOmqmX/view" target="_blank" rel="noopener">Defence and aerospace sector research</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
-        </article>
-
-        <article class="proj" data-title="LightGrid Energy">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">08</div><div><h3>LightGrid Energy</h3><p class="mono kick">Investor materials · Operations</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Energy and data-center startup</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Stage</dt><dd>Joined pre-product; company later raised $800K CAD</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>I joined LightGrid before it had shipped a product. My work was the investor-facing and operational side: a 50 MW data-center case study and white paper, and agents that produced the company's investor- and grant-facing documents.</p>
-              <h5>What I built</h5>
-              <ul><li>An investor-facing 50 MW data-center reference case study and white paper, covering AI workload demand, battery storage, solar and grid-connectivity economics.</li><li>A Documentation Agent that drafted and routed 140+ investor-, grant- and customer-facing documents through reviewer approval.</li><li>An audit of the 31 automations I had built, consolidated into 7 core automations and 4 named agents.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Documents that go to investors and funders have to be right, so figures came from live source systems and a person approved each one before it went out. The company later raised $800K CAD.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>$800K</b><span>CAD raised by the company after I joined</span></div><div class="stat"><b>50 MW</b><span>reference case study and white paper</span></div><div class="stat"><b>140+</b><span>documents indexed</span></div><div class="stat"><b>31 to 7</b><span>automations consolidated</span></div></div>
-        </article>
-
-        <article class="proj" data-title="Tourlink">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">09</div><div><h3>Tourlink</h3><p class="mono kick">Product build · Early-stage venture</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Multi-tenant B2B2C platform</dd></div><div><dt>Status</dt><dd>Contract, remote (UK)</dd></div><div><dt>Stage</dt><dd>Founders now raising, with early commitments</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>A mobile-first platform connecting fans, artists, venues and promoters across booking, ticketing, production, contracts and payouts. I joined at the idea stage. It is now a working product, and the founders are raising with early commercial commitments in hand.</p>
-              <h5>What I built</h5>
-              <ul><li>A ticketing and allocation engine with multi-party ticket pools, time-bound reservations and seller-link attribution.</li><li>Stripe Checkout and Connect for onboarding, payments, settlements and payouts, with a ledger recording the money.</li><li>A modular backend on PostgreSQL and Redis, with offline door-scan reconciliation for live events.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Where money moves, the numbers have to reconcile. Pricing is computed on the server, payment events arrive through webhooks, and every payout traces to a ledger entry. I was one of two developers.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>0 to 1</b><span>joined at the idea stage</span></div><div class="stat"><b>2</b><span>developers on the build</span></div><div class="stat"><b>Raising</b><span>early commercial commitments in hand</span></div></div>
-        </article>
-
-        <article class="proj" data-title="Kalpi">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">10</div><div><h3>Kalpi, quant investing platform</h3><p class="mono kick">Internship · Jul to Aug 2026</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Fintech Product Manager Intern. I audited the product (recommendations went into the Q3 roadmap), prototyped a WhatsApp portfolio assistant and an in-product chatbot in Lovable, and surveyed 30 users on trust and clarity. I analysed 200 investor portfolios (Sharpe ratio, volatility) and presented the results to the founder in a Power BI dashboard. I also wrote the BRD and PRD documents for the Chief of Staff and the developers.</p>
-            <div class="tags"><span class="tag">Product audit</span><span class="tag">User research</span><span class="tag">Power BI</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Nomura">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">11</div><div><h3>Nomura: interest rate curves and trade analytics</h3><p class="mono kick">Hackathon</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Built a C++ interest rate curve engine that bootstraps cash and swap discount curves, prices a fixed-for-floating swap, and computes DV01 sensitivities in closed form instead of bump-and-revalue, checked against finite differences. A second part analysed client trade toxicity and used an XGBoost model to drive a market-making quote strategy.</p>
-            <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">XGBoost</span></div>
-          </div>
-        </article>
-
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>$110B</b><span>WBD enterprise value</span></div><div class="stat"><b>5.5x</b><span>LBO entry EV/EBITDA</span></div><div class="stat"><b>4.4x</b><span>LBO gross MOIC, base case</span></div><div class="stat"><b>34%</b><span>LBO gross IRR, base case</span></div></div>
       </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Research · Under journal review</p>
+          <h3>Climate risk and credit risk in Indian agribusiness</h3>
+          
+          <p>Co-authored, under journal review. A panel of 197 firms (1,964 firm-years, 2015 to 2024), with plant locations matched to daily rainfall data. I did the econometric and machine learning modelling: a fixed-effects panel regression and a causal forest. Highly leveraged firms saw a 12.7 percentage point larger drop in net working capital during droughts.</p>
+          <div class="tags"><span class="tag">Panel data</span><span class="tag">Causal forest</span><span class="tag">Credit risk</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Research · Co-authored</p>
+          <h3>Climate, carbon and agricultural markets</h3>
+          
+          <p>Co-authored a study of tail-risk spillovers, using CAViaR value-at-risk series and a quantile VAR with generalised forecast-error variance decomposition, on 10 years of Bloomberg and MSCI index data. Downside connectedness peaked at 87.88% in crises, with climate indices transmitting risk and agricultural markets receiving it. My part was the modelling.</p>
+          <div class="tags"><span class="tag">CAViaR</span><span class="tag">Quantile VAR</span><span class="tag">Tail risk</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Equity research · Nov 2025</p>
+          <h3>Equity research on Indian jewellery</h3>
+          
+          <p>Co-built a 55-page report on Kalyan Jewellers, PC Jeweller and Goldiam International, with DCF valuations that state their discount-rate, growth and cash-flow assumptions. Kalyan looked overvalued (DCF value ₹143 against a ₹496 price). PC Jeweller (₹55 against ₹11.65) and Goldiam (₹422 against ₹380) looked undervalued.</p>
+          <div class="tags"><span class="tag">DCF</span><span class="tag">Ratio analysis</span></div>
+          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1Txq_a40fWsAhMUXrSX0UwPxq06YIsABf/view" target="_blank" rel="noopener">Equity research report</a><span class="mono">PDF</span></li><li><a href="https://drive.google.com/file/d/1eRbRIdtuqnKbWBrni0j60ez5eUYjNSJq/view" target="_blank" rel="noopener">DCF valuation sheet</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
+        </div>
+        
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Investment thesis · India · 2026</p>
+          <h3>AI data centers: investment thesis and market sizing</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Thesis, market model, competitor map</dd></div><div><dt>Sector</dt><dd>Data-center infrastructure and energy</dd></div><div><dt>Output</dt><dd>Word thesis and two Excel sheets</dd></div></dl>
+          <p>A thesis on where the money is in India's AI data-center build-out. AI racks draw 50 to 150 kW against 10 to 15 kW for older ones, and the grid, cooling and water cannot keep up. I argue the best returns sit in the B2B startups that fix those limits, not in the buildings.</p>
+          <h5>What I built</h5>
+          <ul><li>Four startup layers ranked: liquid cooling, battery storage with tariff arbitrage, captive renewable power, and pre-permitted powered land.</li><li>Financial case for each: liquid cooling adds 40% to 60% to the cooling capex but cuts cooling power by 30% to 40%; taking PUE from 1.55 to 1.20 saves about ₹3.06 crore per MW a year.</li><li>Valuation view: 15x to 18x EV/EBITDA for air-cooled sites against 22x to 26x for liquid-cooled sites with captive power and storage.</li><li>Risks and mitigations, and deal structure: performance-linked tranches and service-based revenue models.</li></ul>
+          <h4>Approach</h4>
+          <p>The market model sizes each layer as TAM, SAM and SOM, with every row tied to a stated source or a stated assumption. The competitor sheet maps eight players, from listed cooling makers to bootstrapped startups, by funding, founders and moat.</p>
+          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1LGPcy__9D7seduhkLD4t0ItRZFx2Q3K2/view" target="_blank" rel="noopener">Investment thesis on AI data centers</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/file/d/12fEe1AC_O2IQCMZIbOZ91xQtZOJs0VIl/view" target="_blank" rel="noopener">Market sizing of ancillary companies</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/file/d/1b5yHgfl3yd0sKaiFCRDnkOMOuY0TeORU/view" target="_blank" rel="noopener">Competitive analysis</a><span class="mono">Excel</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>$9.3B</b><span>cooling TAM by FY31</span></div><div class="stat"><b>$1.0B</b><span>cooling SOM by FY31, 25% startup capture</span></div><div class="stat"><b>$12.2B</b><span>storage TAM by FY31</span></div><div class="stat"><b>$3.0B</b><span>powered-land TAM by FY31</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Investment thesis · Battery-as-a-Service</p>
+          <h3>Battery swapping in India: thesis, sizing and policy</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Thesis, market model, competitor map, policy review</dd></div><div><dt>Sector</dt><dd>Electric mobility</dd></div><div><dt>Output</dt><dd>Doc, two Google Sheets and a policy note</dd></div></dl>
+          <p>An investment thesis on Battery-as-a-Service, with a bottom-up market model for battery swapping in India, a map of the incumbent players, and a review of the government policies that decide whether the market opens up.</p>
+          <h5>What I built</h5>
+          <ul><li>Bottom-up market model: addressable market grows from ₹4,362 crore in 2023 to ₹1,64,000 crore by 2030, built from vehicle sales, pricing and battery-cost data across public sources.</li><li>Competitive landscape of incumbent leaders: Ola, Hero, Ampere, Ather, TVS and Bajaj.</li><li>Policy review: the New EV Policy 2024, EMPS 2024, the draft Battery Swapping Policy, FAME-II and the ACC battery incentive scheme (about $2.5B for 50 GWh of cell capacity).</li></ul>
+          <h4>Approach</h4>
+          <p>Policy is the swing factor here. The draft swapping policy proposes battery standardisation, and startups worry that standards favour big players, so I treat policy certainty as a risk in the thesis and not as background.</p>
+          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/18ctVVAgp-0hsZWzOxphZErKIHXGsyZFN/view" target="_blank" rel="noopener">Battery-as-a-Service investment thesis</a><span class="mono">Doc</span></li><li><a href="https://drive.google.com/file/d/1t5JyUhNDAIwF6MOvD8dTBSbbihyi0vMY/view" target="_blank" rel="noopener">Market sizing for battery swapping</a><span class="mono">Sheet</span></li><li><a href="https://drive.google.com/file/d/1UIUhS9mSRbET-_cvn0h82MH6O403oR7C/view" target="_blank" rel="noopener">Competitive landscape</a><span class="mono">Sheet</span></li><li><a href="https://drive.google.com/file/d/16ZZsl5dOwLzTOqf62dScbbQXMsG9c-xR/view" target="_blank" rel="noopener">Government policies</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>₹4,362 Cr</b><span>market in 2023</span></div><div class="stat"><b>₹1,64,000 Cr</b><span>market by 2030</span></div><div class="stat"><b>6</b><span>incumbents mapped</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Sector research · India · 2026</p>
+          <h3>Defence and aerospace: sector research</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Sector research for an early-stage fund</dd></div><div><dt>Sector</dt><dd>Defence tech and space tech</dd></div><div><dt>Output</dt><dd>Research report</dd></div></dl>
+          <p>Sector research written from an investor's point of view: why Indian defence and aerospace opened to private capital, where the money has gone, and which sub-sectors suit an early-stage, manufacturing-focused fund.</p>
+          <h5>What I built</h5>
+          <ul><li>Policy turning points: DAP 2020, iDEX, the simplified Make-I and Make-II routes, higher FDI limits, and 25% of the defence R&amp;D budget opened to private players.</li><li>Capital-flow table of ten recent rounds, from a $100M drone round to a $1.5M counter-drone seed.</li><li>Five sub-sectors scored against the fund's criteria: component-level space tech and dual-use technology fit best, assembly-led drone makers and pure-software cyber fit worst.</li><li>Two companies to watch, each with the one diligence question I would ask first.</li></ul>
+          <h4>Approach</h4>
+          <p>I graded sectors against what an early-stage fund can actually back: proprietary components, export potential, and unit economics that improve with scale. A sector can be hot and still be a poor fit, and the report says so.</p>
+          <div class="sheets"><h4>Project sheets</h4><ul><li><a href="https://drive.google.com/file/d/1KnmQfjBLlTrJMzRptF5_UmWlP1pOmqmX/view" target="_blank" rel="noopener">Defence and aerospace sector research</a><span class="mono">Word</span></li><li><a href="https://drive.google.com/drive/folders/16RlYX9bXWqE6GJzq5yahiHWLXZnZcDOo" target="_blank" rel="noopener">Open the whole research folder</a><span class="mono">Drive</span></li></ul></div>
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>10</b><span>funding rounds tabulated</span></div><div class="stat"><b>5</b><span>sub-sectors graded</span></div><div class="stat"><b>2</b><span>companies profiled</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Investor materials · Operations</p>
+          <h3>LightGrid Energy</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Energy and data-center startup</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Stage</dt><dd>Joined pre-product; company later raised $800K CAD</dd></div></dl>
+          <p>I joined LightGrid before it had shipped a product. My work was the investor-facing and operational side: a 50 MW data-center case study and white paper, and agents that produced the company's investor- and grant-facing documents.</p>
+          <h5>What I built</h5>
+          <ul><li>An investor-facing 50 MW data-center reference case study and white paper, covering AI workload demand, battery storage, solar and grid-connectivity economics.</li><li>A Documentation Agent that drafted and routed 140+ investor-, grant- and customer-facing documents through reviewer approval.</li><li>An audit of the 31 automations I had built, consolidated into 7 core automations and 4 named agents.</li></ul>
+          <h4>Approach</h4>
+          <p>Documents that go to investors and funders have to be right, so figures came from live source systems and a person approved each one before it went out. The company later raised $800K CAD.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>$800K</b><span>CAD raised by the company after I joined</span></div><div class="stat"><b>50 MW</b><span>reference case study and white paper</span></div><div class="stat"><b>140+</b><span>documents indexed</span></div><div class="stat"><b>31 to 7</b><span>automations consolidated</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Product build · Early-stage venture</p>
+          <h3>Tourlink</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Multi-tenant B2B2C platform</dd></div><div><dt>Status</dt><dd>Contract, remote (UK)</dd></div><div><dt>Stage</dt><dd>Founders now raising, with early commitments</dd></div></dl>
+          <p>A mobile-first platform connecting fans, artists, venues and promoters across booking, ticketing, production, contracts and payouts. I joined at the idea stage. It is now a working product, and the founders are raising with early commercial commitments in hand.</p>
+          <h5>What I built</h5>
+          <ul><li>A ticketing and allocation engine with multi-party ticket pools, time-bound reservations and seller-link attribution.</li><li>Stripe Checkout and Connect for onboarding, payments, settlements and payouts, with a ledger recording the money.</li><li>A modular backend on PostgreSQL and Redis, with offline door-scan reconciliation for live events.</li></ul>
+          <h4>Approach</h4>
+          <p>Where money moves, the numbers have to reconcile. Pricing is computed on the server, payment events arrive through webhooks, and every payout traces to a ledger entry. I was one of two developers.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>0 to 1</b><span>joined at the idea stage</span></div><div class="stat"><b>2</b><span>developers on the build</span></div><div class="stat"><b>Raising</b><span>early commercial commitments in hand</span></div></div>
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Internship · Jul to Aug 2026</p>
+          <h3>Kalpi, quant investing platform</h3>
+          
+          <p>Fintech Product Manager Intern. I audited the product (recommendations went into the Q3 roadmap), prototyped a WhatsApp portfolio assistant and an in-product chatbot in Lovable, and surveyed 30 users on trust and clarity. I analysed 200 investor portfolios (Sharpe ratio, volatility) and presented the results to the founder in a Power BI dashboard. I also wrote the BRD and PRD documents for the Chief of Staff and the developers.</p>
+          <div class="tags"><span class="tag">Product audit</span><span class="tag">User research</span><span class="tag">Power BI</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Hackathon</p>
+          <h3>Nomura: interest rate curves and trade analytics</h3>
+          
+          <p>Built a C++ interest rate curve engine that bootstraps cash and swap discount curves, prices a fixed-for-floating swap, and computes DV01 sensitivities in closed form instead of bump-and-revalue, checked against finite differences. A second part analysed client trade toxicity and used an XGBoost model to drive a market-making quote strategy.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">XGBoost</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="actions reveal" style="margin-top:12px"><a class="btn" href="https://github.com/Tilak242" target="_blank" rel="noopener">More on GitHub ↗</a></div>
     </div>
   </section>
 
@@ -634,81 +574,6 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     });
   });
 
-  /* ---- works ring ---- */
-  var stage = document.getElementById('stage'), ring = document.getElementById('ring');
-  var cards = [].slice.call(ring.querySelectorAll('.card'));
-  var sideBtns = [].slice.call(document.querySelectorAll('#side button'));
-  var projs = [].slice.call(document.querySelectorAll('#detail .proj'));
-  var counter = document.getElementById('counter');
-  var N = cards.length, step = 360 / N, pos = 0, idx = 0;
-  ring.style.setProperty('--step', step + 'deg');
-  function setRadius() {
-    var cw = parseFloat(getComputedStyle(ring).getPropertyValue('--cw')) || 220;
-    var r = Math.max(cw * 1.25 / (2 * Math.tan(Math.PI / N)), cw * 1.4);
-    ring.style.setProperty('--R', r.toFixed(0) + 'px');
-  }
-  setRadius(); window.addEventListener('resize', setRadius);
-
-  function mod(a) { return ((a % N) + N) % N; }
-  function render() {
-    ring.style.setProperty('--rot', (-pos * step) + 'deg');
-    idx = mod(pos);
-    cards.forEach(function (c, i) {
-      c.classList.toggle('active', i === idx);
-      c.setAttribute('aria-current', i === idx ? 'true' : 'false');
-      c.tabIndex = i === idx ? 0 : -1;
-    });
-    sideBtns.forEach(function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
-    projs.forEach(function (p, i) { p.hidden = i !== idx; });
-    counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
-  }
-  function goTo(target) {
-    var diff = mod(target) - idx;
-    if (diff > N / 2) diff -= N;
-    if (diff < -N / 2) diff += N;
-    pos += diff; render();
-  }
-  function move(d) { pos += d; render(); }
-
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (!moved) goTo(i); }); });
-  sideBtns.forEach(function (b, i) { b.addEventListener('click', function () { goTo(i); }); });
-  document.getElementById('prev').addEventListener('click', function () { move(-1); });
-  document.getElementById('next').addEventListener('click', function () { move(1); });
-  stage.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { move(1); cards[idx].focus(); e.preventDefault(); }
-    if (e.key === 'ArrowLeft') { move(-1); cards[idx].focus(); e.preventDefault(); }
-  });
-
-  /* drag to rotate */
-  var down = false, startX = 0, startPos = 0, moved = false;
-  stage.addEventListener('pointerdown', function (e) {
-    down = true; moved = false; startX = e.clientX; startPos = pos;
-    stage.classList.add('drag');
-  });
-  window.addEventListener('pointermove', function (e) {
-    if (!down) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > 6) moved = true;
-    var live = startPos - dx / 140;
-    ring.style.setProperty('--rot', (-live * step) + 'deg');
-  });
-  window.addEventListener('pointerup', function (e) {
-    if (!down) return;
-    down = false; stage.classList.remove('drag');
-    var dx = e.clientX - startX;
-    pos = Math.round(startPos - dx / 140);
-    render();
-    setTimeout(function () { moved = false; }, 0);
-  });
-  stage.addEventListener('wheel', function (e) {
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) { move(e.deltaX > 0 ? 1 : -1); e.preventDefault(); }
-  }, { passive: false });
-
-  document.querySelectorAll('[data-open]').forEach(function (a) {
-    a.addEventListener('click', function () { goTo(parseInt(a.getAttribute('data-open'), 10)); });
-  });
-
-  render();
 })();
 </script>
 
