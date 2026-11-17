@@ -236,6 +236,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     <nav aria-label="Primary">
       <ul>
         <li class="opt"><a href="#journey">Where I've been</a></li>
+        <li class="opt"><a href="#experience">Work experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -253,7 +254,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
       <h1 id="heroTitle">Tilak<br>Kamani.</h1>
       <p class="lede">Product builder with a finance background. AI agents, working software and a habit of measuring what I ship.</p>
       <div class="actions">
-        <a class="btn solid" href="#projects">View projects</a>
+        <a class="btn solid" href="#experience">View my work</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -325,30 +326,10 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     </div>
   </section>
 
-  <section class="dark-sec" id="projects" aria-labelledby="projects-h">
+  <section class="dark-sec" id="experience" aria-labelledby="experience-h">
     <div class="wrap">
-      <p class="mono sec-label reveal">02 · Projects</p>
-      <h2 class="glow reveal" id="projects-h">Featured<br>projects</h2>
-      <div class="fp reveal">
-        <div class="fp-txt">
-          <p class="mono fp-kick">AI · Grounded voice tutor</p>
-          <h3>GuruVoice</h3>
-          <dl class="fp-meta"><div><dt>Type</dt><dd>Voice RAG application</dd></div><div><dt>Status</dt><dd>Independent project</dd></div><div><dt>Stack</dt><dd>Python, FastAPI, Chroma, Gemini, Sarvam</dd></div></dl>
-          <p>A multilingual voice tutor for Indian students. You ask by voice in English or Hinglish. It answers only from a verified, curated corpus, speaks the answer, cites its source, and refuses when it can't ground an answer.</p>
-          <h5>What I built</h5>
-          <ul>
-                <li>Retrieval over a curated corpus with Gemini embeddings and a local Chroma store.</li>
-                <li>Grounded generation that cites the source document and refuses rather than guesses.</li>
-                <li>Sarvam speech-to-text and text-to-speech, with live barge-in so you can interrupt an answer.</li>
-                <li>Follow-up rewriting for multi-turn questions, and a quiz tool that builds a quiz from the last verified answer.</li>
-              </ul>
-          <h4>Approach</h4>
-          <p>I treated RAG as something to measure, not trust. I tuned against 86 development cases, then ran 18 new held-out cases once, after the system was frozen, and changed nothing based on the results. I also measured a reranker, found it added about 20 seconds of loading and scoring time, and turned it off in the live path.</p>
-          <p class="fine">Held-out limits, stated plainly: 2 of 11 answerable questions were wrongly refused, and 0 of 5 unanswerable ones were wrongly accepted.</p>
-          
-        </div>
-        <div class="stat-grid fp-stats"><div class="stat"><b>11/11</b><span>top-1 retrieval, held-out set</span></div><div class="stat"><b>16/16</b><span>answers grounded, no hallucinations found</span></div><div class="stat"><b>-84%</b><span>end-to-end latency, 34.9s to 5.7s</span></div><div class="stat"><b>305</b><span>automated tests</span></div></div>
-      </div>
+      <p class="mono sec-label reveal">02 · Work experience</p>
+      <h2 class="glow reveal" id="experience-h">Work<br>experience</h2>
       <div class="fp reveal">
         <div class="fp-txt">
           <p class="mono fp-kick">Product management · Healthcare AI</p>
@@ -421,6 +402,33 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
           
         </div>
         
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-sec" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <p class="mono sec-label reveal">03 · Projects</p>
+      <h2 class="glow reveal" id="projects-h">Projects</h2>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">AI · Grounded voice tutor</p>
+          <h3>GuruVoice</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Voice RAG application</dd></div><div><dt>Status</dt><dd>Independent project</dd></div><div><dt>Stack</dt><dd>Python, FastAPI, Chroma, Gemini, Sarvam</dd></div></dl>
+          <p>A multilingual voice tutor for Indian students. You ask by voice in English or Hinglish. It answers only from a verified, curated corpus, speaks the answer, cites its source, and refuses when it can't ground an answer.</p>
+          <h5>What I built</h5>
+          <ul>
+                <li>Retrieval over a curated corpus with Gemini embeddings and a local Chroma store.</li>
+                <li>Grounded generation that cites the source document and refuses rather than guesses.</li>
+                <li>Sarvam speech-to-text and text-to-speech, with live barge-in so you can interrupt an answer.</li>
+                <li>Follow-up rewriting for multi-turn questions, and a quiz tool that builds a quiz from the last verified answer.</li>
+              </ul>
+          <h4>Approach</h4>
+          <p>I treated RAG as something to measure, not trust. I tuned against 86 development cases, then ran 18 new held-out cases once, after the system was frozen, and changed nothing based on the results. I also measured a reranker, found it added about 20 seconds of loading and scoring time, and turned it off in the live path.</p>
+          <p class="fine">Held-out limits, stated plainly: 2 of 11 answerable questions were wrongly refused, and 0 of 5 unanswerable ones were wrongly accepted.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>11/11</b><span>top-1 retrieval, held-out set</span></div><div class="stat"><b>16/16</b><span>answers grounded, no hallucinations found</span></div><div class="stat"><b>-84%</b><span>end-to-end latency, 34.9s to 5.7s</span></div><div class="stat"><b>305</b><span>automated tests</span></div></div>
       </div>
       <div class="fp solo reveal">
         <div class="fp-txt">
