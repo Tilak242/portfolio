@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Tilak Kamani: AI products, agents and working software. Final-year Electronics and Communication Engineering student with a minor in Finance at BITS Pilani, Goa.">
+<title>Tilak Kamani Tech Portfolio</title>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root {
+  color-scheme: dark;
+  --ink: #07080b;
+  --ink-2: #0e1015;
+  --line: rgba(255,255,255,.12);
+  --text: #f2f3f7;
+  --dim: #a3a7b3;
+  --glow: #a9b8ff;
+  --paper: #f3f2ee;
+  --paper-ink: #14151a;
+  --paper-dim: #55575f;
+  --paper-line: #d9d7cf;
+  --sans: "SF Pro Display", Inter, ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --maxw: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body { margin: 0; background: var(--ink); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: var(--glow); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+.paper :focus-visible { outline-color: #2f3fd8; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--glow); color: var(--ink); padding: 8px 14px; border-radius: 8px; z-index: 50; }
+.skip:focus { left: 8px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+
+/* nav */
+header.site { position: fixed; inset: 0 0 auto 0; padding-top: env(safe-area-inset-top, 0px); z-index: 30; background: linear-gradient(rgba(7,8,11,.88), rgba(7,8,11,0)); backdrop-filter: blur(6px); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; }
+nav a { color: var(--dim); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+nav a:hover { color: var(--text); }
+
+/* hero */
+.hero { position: relative; min-height: min(100svh, 760px); display: flex; align-items: center; overflow: hidden; padding: 110px 0 70px; background: radial-gradient(ellipse at 70% 30%, #151a33 0%, var(--ink) 60%); }
+.ghost { position: absolute; left: 0; right: 0; white-space: nowrap; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: .9; color: transparent; -webkit-text-stroke: 1px rgba(169,184,255,.16); pointer-events: none; user-select: none; will-change: transform; }
+.ghost.g1 { top: 14%; font-size: clamp(90px, 20vw, 280px); transform: translateX(calc(var(--sy, 0) * -0.25px)); }
+.ghost.g2 { bottom: 6%; font-size: clamp(90px, 20vw, 280px); transform: translateX(calc(-30% + var(--sy, 0) * 0.3px)); }
+.hero-inner { position: relative; z-index: 2; perspective: 900px; width: 100%; }
+.hero h1 { margin: 14px 0 22px; font-size: clamp(56px, 12.5vw, 170px); line-height: .88; font-weight: 800; letter-spacing: -.035em; text-transform: uppercase; text-shadow: 0 0 60px rgba(150,170,255,.35), 0 0 6px rgba(255,255,255,.25); transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .15s ease-out; }
+.lede { font-size: clamp(17px, 2vw, 21px); color: var(--dim); max-width: 600px; margin: 0 0 30px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; background: rgba(255,255,255,.03); transition: background .2s, border-color .2s, color .2s; }
+.btn:hover { border-color: var(--glow); color: var(--glow); }
+.btn.solid { background: var(--text); color: var(--ink); border-color: var(--text); }
+.btn.solid:hover { background: var(--glow); border-color: var(--glow); color: var(--ink); }
+.scroll-hint { position: absolute; left: 24px; bottom: 22px; z-index: 2; color: var(--dim); }
+
+/* sections */
+section { position: relative; }
+.dark-sec { padding: 110px 0; border-top: 1px solid var(--line); }
+h2 { margin: 12px 0 18px; font-size: clamp(40px, 7.5vw, 104px); line-height: .92; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; }
+h2.glow { text-shadow: 0 0 50px rgba(150,170,255,.3); }
+h3 { margin: 0; font-weight: 700; letter-spacing: -.01em; }
+h4 { margin: 0 0 10px; font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.sec-label { color: var(--glow); }
+
+/* profile */
+.profile-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; margin-top: 30px; }
+.profile-grid p { font-size: 18px; color: #d4d6de; margin: 0 0 16px; max-width: 640px; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.stat { background: var(--ink-2); padding: 20px; }
+.stat b { display: block; font-size: clamp(34px, 4.4vw, 52px); line-height: 1; font-weight: 800; letter-spacing: -.02em; text-shadow: 0 0 30px rgba(150,170,255,.25); }
+.stat span { display: block; margin-top: 8px; color: var(--dim); font-size: 13px; line-height: 1.4; }
+.cap-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); }
+.cap-cols p { margin: 0; color: #cfd2db; font-size: 15px; }
+.cap-cols h4 { color: var(--glow); }
+
+/* tabs */
+.tabs { display: flex; gap: 8px; margin: 32px 0 28px; }
+.tab { font: inherit; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 9px 16px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--text); color: var(--ink); border-color: var(--text); }
+.tab:hover { border-color: var(--glow); }
+.rows { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 150px 1fr 1.4fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.row .when { color: var(--glow); }
+.row h3 { font-size: 22px; line-height: 1.2; }
+.row p { margin: 0; color: var(--dim); font-size: 15px; }
+.beyond { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+.plain { list-style: none; margin: 0; padding: 0; }
+.plain li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: #d4d6de; }
+
+/* works (paper section) */
+.paper { background: var(--paper); color: var(--paper-ink); padding: 110px 0 90px; }
+.paper h2 { color: var(--paper-ink); }
+.paper .sec-label { color: #2f3fd8; }
+.paper .note { color: var(--paper-dim); max-width: 560px; margin: 0; }
+.works-top { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.stage-wrap { position: relative; display: grid; grid-template-columns: 1fr 220px; gap: 24px; margin-top: 30px; align-items: center; }
+.stage { position: relative; height: 500px; perspective: 1300px; perspective-origin: 50% 40%; touch-action: pan-y; cursor: grab; user-select: none; overflow: hidden; }
+.stage.drag { cursor: grabbing; }
+.center-label { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; z-index: 0; color: var(--paper-ink); }
+.center-label b { display: block; font-size: 22px; letter-spacing: .02em; font-weight: 700; }
+.ring { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(calc(var(--R) * -1)) rotateY(var(--rot, 0deg)); transition: transform .9s cubic-bezier(.2,.7,.2,1); --R: 440px; --cw: 220px; --ch: 300px; }
+.stage.drag .ring { transition: none; }
+.card { position: absolute; left: calc(var(--cw) / -2); top: calc(var(--ch) / -2); width: var(--cw); height: var(--ch); transform: rotateY(calc(var(--i) * var(--step))) translateZ(var(--R)); backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 0; padding: 18px; margin: 0; text-align: left; font: inherit; color: #fff; border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: linear-gradient(155deg, hsl(var(--h) 60% 34%), hsl(calc(var(--h) + 40) 55% 12%)); box-shadow: 0 24px 48px -20px rgba(0,0,0,.55); opacity: .78; transition: opacity .5s; }
+.card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 12%, hsl(var(--h) 90% 70% / .45), transparent 55%); }
+.card::after { content: attr(data-n); position: absolute; right: 8px; bottom: -22px; font-size: 150px; font-weight: 800; line-height: 1; color: rgba(255,255,255,.08); letter-spacing: -.05em; }
+.card > * { position: relative; z-index: 1; }
+.card.active { opacity: 1; }
+.card .k { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; opacity: .85; }
+.card .t { font-size: 25px; line-height: 1.05; font-weight: 800; letter-spacing: -.02em; }
+.card .s { font-size: 12.5px; line-height: 1.4; opacity: .85; margin-top: 8px; display: block; font-weight: 400; letter-spacing: 0; }
+.side { list-style: none; margin: 0; padding: 0; }
+.side li { margin: 0; }
+.side button { width: 100%; text-align: right; font: inherit; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: #9a9ca4; background: none; border: 0; padding: 6px 0; cursor: pointer; border-bottom: 2px solid transparent; }
+.side button[aria-current="true"] { color: var(--paper-ink); font-weight: 700; border-bottom-color: var(--paper-ink); }
+.side button:hover { color: var(--paper-ink); }
+.controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 8px; color: var(--paper-dim); }
+.ctl { font: inherit; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--paper-ink); background: transparent; color: var(--paper-ink); font-size: 18px; cursor: pointer; }
+.ctl:hover { background: var(--paper-ink); color: var(--paper); }
+
+/* detail */
+.detail { margin-top: 56px; border-top: 1px solid var(--paper-ink); padding-top: 36px; }
+.proj[hidden] { display: none; }
+html:not(.js) .proj { margin-bottom: 64px; }
+.proj-head { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+.proj-num { font-size: clamp(54px, 9vw, 110px); font-weight: 800; line-height: .9; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px var(--paper-ink); }
+.proj h3 { font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -.02em; }
+.proj .kick { color: #2f3fd8; margin: 6px 0 0; }
+.meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0; padding: 16px 0; border-top: 1px solid var(--paper-line); border-bottom: 1px solid var(--paper-line); }
+.meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper-dim); }
+.meta dd { margin: 2px 0 0; font-size: 15px; }
+.proj-body { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+.proj-body p { margin: 0 0 14px; color: #2b2d34; }
+.proj-body ul { margin: 0 0 14px; padding-left: 20px; color: #2b2d34; }
+.proj-body li { margin: 6px 0; }
+.proj-body h4, .proj .sub h4 { color: var(--paper-dim); }
+.proj-body h5 { font-size: 15px; margin: 18px 0 6px; font-weight: 700; }
+.fine { color: var(--paper-dim) !important; font-size: 14px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--paper-line); border: 1px solid var(--paper-line); border-radius: 12px; overflow: hidden; margin-top: 24px; }
+.stats .stat { background: #fbfaf7; padding: 16px; }
+.stats .stat b { font-size: 30px; text-shadow: none; color: var(--paper-ink); }
+.stats .stat span { color: var(--paper-dim); }
+.sub { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--paper-line); }
+.sub h3 { font-size: 22px; margin-bottom: 8px; }
+.sub p { margin: 0; color: #2b2d34; max-width: 760px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--paper-ink); border-radius: 999px; padding: 3px 10px; }
+
+/* contact */
+.thanks { padding: 120px 0 70px; border-top: 1px solid var(--line); background: radial-gradient(ellipse at 20% 100%, #151a33 0%, var(--ink) 60%); }
+.thanks h2 { font-size: clamp(64px, 15vw, 220px); line-height: .85; text-shadow: 0 0 70px rgba(150,170,255,.35); }
+.contact-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 340px)); gap: 28px; margin: 34px 0 0; }
+.contact-list dt { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.contact-list dd { margin: 4px 0 0; overflow-wrap: anywhere; font-size: 17px; }
+footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--dim); font-size: 13px; }
+
+/* reveal */
+.js .reveal { opacity: 1; transform: none; }
+
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.feat { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--ink-2); display: flex; flex-direction: column; gap: 10px; }
+.feat h3 { font-size: 24px; letter-spacing: -.01em; }
+.feat p { margin: 0; color: #cfd2db; font-size: 15px; flex: 1; }
+.feat .mono { color: var(--glow); }
+@media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .profile-grid, .beyond { grid-template-columns: 1fr; gap: 36px; }
+  .stage-wrap { grid-template-columns: 1fr; }
+  .side { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: center; order: 3; }
+  .side button { text-align: left; width: auto; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .cap-cols, .proj-body, .meta, .contact-list { grid-template-columns: 1fr; }
+  .meta { gap: 10px; }
+  .dark-sec { padding: 80px 0; }
+  .paper { padding: 80px 0 64px; }
+  .stage { height: 420px; }
+  .ring { --R: 300px; --cw: 160px; --ch: 250px; }
+  .card { padding: 14px; }
+  .card .t { font-size: 20px; }
+  .card::after { font-size: 110px; }
+  nav ul { gap: 16px; }
+  .scroll-hint { display: none; }
+}
+@media (max-width: 520px) { nav .opt { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ring, .card, .hero h1 { transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .ghost { transform: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">T. Kamani.</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li class="opt"><a href="#journey">Where I've been</a></li>
+        <li class="opt"><a href="#featured">Featured</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="ghost g1" aria-hidden="true">Product builder</div>
+    <div class="ghost g2" aria-hidden="true">Product × AI</div>
+    <div class="wrap hero-inner" id="heroInner">
+      <p class="mono sec-label">Portfolio · 2026</p>
+      <h1 id="heroTitle">Tilak<br>Kamani.</h1>
+      <p class="lede">Product builder with a finance background. AI agents, working software and a habit of measuring what I ship.</p>
+      <div class="actions">
+        <a class="btn solid" href="#works">View works</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <span class="mono scroll-hint" aria-hidden="true">Scroll ↓</span>
+  </section>
+
+  <section class="dark-sec" id="journey" aria-labelledby="journey-h" style="background:var(--ink-2)">
+    <div class="wrap">
+      <p class="mono sec-label reveal">01 · Where I've been</p>
+      <h2 class="glow reveal" id="journey-h">Where<br>I've been</h2>
+      <p class="reveal" style="color:var(--dim);max-width:560px;margin:0">Hello, I'm Tilak. Three years at BITS Pilani, Goa, and the roles I've taken on alongside them.</p>
+      <div class="profile-grid">
+        <div class="reveal">
+          <p>I'm a final-year Electronics and Communication Engineering student at BITS Pilani, Goa, with a minor in Finance. I like taking a product from first prototype to a system that holds up, and I like knowing, with a measurement, whether it does.</p>
+          <p>Through internships and contract work I've built an AI tutor, a ticketing platform, a healthcare document-search product and internal automation agents. I'm looking for a product or engineering role where I can keep building, measure what I built, and explain what I found.</p>
+        </div>
+        <div class="stat-grid reveal">
+          <div class="stat"><b data-count="305">305</b><span>automated tests on GuruVoice</span></div>
+          <div class="stat"><b data-count="84" data-suffix="%">84%</b><span>latency cut on GuruVoice</span></div>
+          <div class="stat"><b data-count="140" data-suffix="+">140+</b><span>documents indexed by the Documentation Agent</span></div>
+          <div class="stat"><b data-count="50">50</b><span>volunteers led at Nirmaan NGO</span></div>
+        </div>
+      </div>
+      <div class="cap-cols reveal">
+        <div><h4>Product</h4><p>PRDs and BRDs, a 30-person user survey, a product audit that fed Kalpi's Q3 roadmap, and access and audit requirements for healthcare data.</p></div>
+        <div><h4>Engineering</h4><p>A PostgreSQL, Redis and Stripe backend, multi-tenant ticketing, a RAG tutor with 305 tests, and PCB design.</p></div>
+        <div><h4>AI</h4><p>RAG systems and Slack-native agents with human approval, staged rollouts and measured evaluation.</p></div>
+      </div>
+      <p class="mono reveal" style="margin-top:34px;color:var(--dim)">Tools · Python · SQL · FastAPI · PostgreSQL · Redis · Stripe · Chroma · Claude Code · Lovable · Jira · ClickUp</p>
+
+      <div class="tabs" style="margin-top:56px" role="tablist" aria-label="Journey">
+        <button class="tab" role="tab" id="tab-learn" aria-selected="true" aria-controls="panel-learn" type="button">Learning</button>
+        <button class="tab" role="tab" id="tab-work" aria-selected="false" aria-controls="panel-work" tabindex="-1" type="button">Work</button>
+      </div>
+
+      <div id="panel-learn" role="tabpanel" aria-labelledby="tab-learn">
+        <div class="rows">
+          <div class="row"><span class="mono when">2023</span><h3>Foundations</h3><p>Started the B.E. in Electronics and Communication Engineering, with a minor in Finance.</p></div>
+          <div class="row"><span class="mono when">2024</span><h3>Hardware and leading</h3><p>Joined Project Kratos as an electronics core member, designing PCBs for a Mars rover (7th internationally at IRC). Started leading Nirmaan NGO's volunteers.</p></div>
+          <div class="row"><span class="mono when">2025</span><h3>Industry and research</h3><p>Electronics lead for a CanSat team. Production management intern at Eagle Polychems. Co-built an equity research report, and joined LightGrid Energy before it had a product.</p></div>
+          <div class="row"><span class="mono when">2026</span><h3>Products and deals</h3><p>Built Tourlink and GuruVoice, interned at Kalpi, started as Product Manager at HealthSmart AI, and joined HSBC India GSC.</p></div>
+        </div>
+        <div class="beyond">
+          <div>
+            <h4>Coursework</h4>
+            <ul class="plain"><li>Corporate Finance</li><li>Business Analysis and Valuation</li><li>Accounting</li><li>Portfolio Management</li></ul>
+          </div>
+          <div>
+            <h4>Beyond the code</h4>
+            <ul class="plain">
+              <li>Project Lead, Nirmaan NGO: 50 volunteers, 100+ hours of teaching and outreach</li>
+              <li>Electronics lead, CanSat team (SEDS Celestia), 2025</li>
+              <li>Electronics core member, Project Kratos Mars rover, 2024 to 2025</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-work" role="tabpanel" aria-labelledby="tab-work" hidden>
+        <div class="rows">
+          <div class="row"><span class="mono when">Present</span><h3>HSBC India GSC</h3><p>Analyst Intern, Global Finance Operations and Finance Change Delivery. Analytical tools and models for senior management, proofs of concept with advanced analytics and machine learning, and Python, R and SQL on the bank's data systems.</p></div>
+          <div class="row"><span class="mono when">Sept 2026 to present</span><h3>HealthSmart AI (Canada)</h3><p>Product Manager, contract and remote. Secure APIs for clinical document exchange and a RAG-based search over clinical documents.</p></div>
+          <div class="row"><span class="mono when">Jul to Aug 2026</span><h3>Kalpi</h3><p>Fintech Product Manager Intern. Product and UX audit, a Lovable prototype of a WhatsApp portfolio assistant, a 30-person survey, and analysis of 200 investor portfolios.</p></div>
+          <div class="row"><span class="mono when">May to Jul 2026</span><h3>Tourlink (UK)</h3><p>Software Developer, contract and remote. One of two developers building a multi-tenant ticketing platform from the idea stage.</p></div>
+          <div class="row"><span class="mono when">Nov 2025 to Jun 2026</span><h3>LightGrid Energy (Canada)</h3><p>Automation Engineer, contract and remote. Documentation and Momentum agents, a sales intelligence spec, and a 50 MW data-center case study.</p></div>
+          <div class="row"><span class="mono when">2025</span><h3>Eagle Polychems</h3><p>Production management intern.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-sec" id="featured" aria-labelledby="featured-h">
+    <div class="wrap">
+      <p class="mono sec-label reveal">02 · Featured projects</p>
+      <h2 class="glow reveal" id="featured-h">Featured<br>projects</h2>
+      <div class="feat-grid reveal">
+        <div class="feat"><p class="mono">Healthcare AI · Live app</p><h3>Healthsmart AI</h3><p>Secure document exchange between two clinical systems, and natural-language search over clinical documents.</p><div class="actions"><a class="btn solid" href="#works" data-open="1">Details</a><a class="btn" href="https://healthsmartv102-production.up.railway.app/#/authentication/sign-in" target="_blank" rel="noopener">Live app ↗</a></div></div>
+        <div class="feat"><p class="mono">AI agent · Slack</p><h3>Documentation Agent</h3><p>Drafts investor, grant and customer documents from live company data, with a human approving each one. 140+ documents indexed.</p><div class="actions"><a class="btn solid" href="#works" data-open="3">Details</a></div></div>
+        <div class="feat"><p class="mono">AI agent · Jira</p><h3>Momentum Agent</h3><p>A source-linked ledger of commitments from Jira, ClickUp, Slack and meetings, rolled out in shadow, review and live stages.</p><div class="actions"><a class="btn solid" href="#works" data-open="4">Details</a></div></div>
+      </div>
+      <div class="actions reveal" style="margin-top:28px"><a class="btn" href="https://github.com/Tilak242" target="_blank" rel="noopener">More on GitHub ↗</a></div>
+    </div>
+  </section>
+
+  <section class="paper" id="works" aria-labelledby="works-h">
+    <div class="wrap">
+      <div class="works-top">
+        <div>
+          <p class="mono sec-label reveal">03 · Works</p>
+          <h2 class="reveal" id="works-h">Works '26</h2>
+        </div>
+        <p class="note reveal">Eight projects across AI, product and engineering. Drag the ring, use the arrows or pick from the list. The details open below.</p>
+      </div>
+
+      <div class="stage-wrap reveal">
+        <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Projects">
+          <div class="center-label" aria-hidden="true"><b>WORKS '26</b><span class="mono">Drag to cycle</span></div>
+          <div class="ring" id="ring">
+            <button class="card" type="button" style="--i:0;--h:235" data-n="01"><span class="k">AI · Voice</span><span><span class="t">GuruVoice</span><span class="s">Grounded multilingual voice tutor</span></span></button>
+            <button class="card" type="button" style="--i:1;--h:195" data-n="02"><span class="k">AI · Healthcare</span><span><span class="t">Healthsmart AI</span><span class="s">Clinical document exchange and RAG search</span></span></button>
+            <button class="card" type="button" style="--i:2;--h:18" data-n="03"><span class="k">Product build</span><span><span class="t">Tourlink</span><span class="s">Multi-tenant ticketing platform</span></span></button>
+            <button class="card" type="button" style="--i:3;--h:160" data-n="04"><span class="k">AI automation</span><span><span class="t">Documentation Agent</span><span class="s">Drafts that a person approves</span></span></button>
+            <button class="card" type="button" style="--i:4;--h:28" data-n="05"><span class="k">AI automation</span><span><span class="t">Momentum Agent</span><span class="s">Commitments tracked across tools</span></span></button>
+            <button class="card" type="button" style="--i:5;--h:275" data-n="06"><span class="k">Internship</span><span><span class="t">Kalpi</span><span class="s">Product audit and portfolio analytics</span></span></button>
+            <button class="card" type="button" style="--i:6;--h:350" data-n="07"><span class="k">Hackathon</span><span><span class="t">Nomura</span><span class="s">Rate curves and trade analytics</span></span></button>
+            <button class="card" type="button" style="--i:7;--h:300" data-n="08"><span class="k">Smaller builds</span><span><span class="t">Pipeline, marketplace, ads</span><span class="s">Three shorter projects</span></span></button>
+          </div>
+        </div>
+        <ul class="side" id="side" aria-label="Project list">
+          <li><button type="button">GuruVoice</button></li>
+          <li><button type="button">Healthsmart AI</button></li>
+          <li><button type="button">Tourlink</button></li>
+          <li><button type="button">Documentation Agent</button></li>
+          <li><button type="button">Momentum Agent</button></li>
+          <li><button type="button">Kalpi</button></li>
+          <li><button type="button">Nomura</button></li>
+          <li><button type="button">Smaller builds</button></li>
+        </ul>
+      </div>
+      <div class="controls">
+        <button class="ctl" id="prev" type="button" aria-label="Previous project">←</button>
+        <span class="mono" id="counter" aria-live="polite">01 / 08</span>
+        <button class="ctl" id="next" type="button" aria-label="Next project">→</button>
+      </div>
+
+      <div class="detail" id="detail" aria-live="polite">
+
+        <article class="proj" data-title="GuruVoice">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">01</div><div><h3>GuruVoice</h3><p class="mono kick">AI · Grounded voice tutor</p></div></div>
+          <dl class="meta"><div><dt>Type</dt><dd>Voice RAG application</dd></div><div><dt>Status</dt><dd>Independent project</dd></div><div><dt>Stack</dt><dd>Python, FastAPI, Chroma, Gemini, Sarvam</dd></div></dl>
+          <div class="proj-body">
+            <div>
+              <h4>Project brief</h4>
+              <p>A multilingual voice tutor for Indian students. You ask by voice in English or Hinglish. It answers only from a verified, curated corpus, speaks the answer, cites its source, and refuses when it can't ground an answer.</p>
+              <h5>What I built</h5>
+              <ul>
+                <li>Retrieval over a curated corpus with Gemini embeddings and a local Chroma store.</li>
+                <li>Grounded generation that cites the source document and refuses rather than guesses.</li>
+                <li>Sarvam speech-to-text and text-to-speech, with live barge-in so you can interrupt an answer.</li>
+                <li>Follow-up rewriting for multi-turn questions, and a quiz tool that builds a quiz from the last verified answer.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <p>I treated RAG as something to measure, not trust. I tuned against 86 development cases, then ran 18 new held-out cases once, after the system was frozen, and changed nothing based on the results. I also measured a reranker, found it added about 20 seconds of loading and scoring time, and turned it off in the live path.</p>
+              <p class="fine">Held-out limits, stated plainly: 2 of 11 answerable questions were wrongly refused, and 0 of 5 unanswerable ones were wrongly accepted.</p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>11/11</b><span>top-1 retrieval, held-out set</span></div>
+            <div class="stat"><b>16/16</b><span>answers grounded, no hallucinations found</span></div>
+            <div class="stat"><b>-84%</b><span>end-to-end latency, 34.9s to 5.7s</span></div>
+            <div class="stat"><b>305</b><span>automated tests</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-title="Healthsmart AI">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">02</div><div><h3>Healthsmart AI</h3><p class="mono kick">Product management · Healthcare AI</p></div></div>
+          <dl class="meta"><div><dt>Type</dt><dd>Clinical workflow platform</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada), Sept 2026 to present</dd></div><div><dt>Role</dt><dd>Product Manager</dd></div></dl>
+          <div class="proj-body">
+            <div>
+              <h4>Project brief</h4>
+              <p>Product work on HealthSmart, a clinical automation platform for clinics. I defined how it exchanges clinical documents with NovX and how staff search those documents in plain language.</p>
+              <h5>What I built</h5>
+              <ul><li>Secure REST APIs connecting NovX and HealthSmart for clinical document exchange.</li><li>Authentication, access-control and audit requirements for sensitive healthcare data.</li><li>A RAG-based search that lets users retrieve information from clinical documents in natural language.</li><li>Lovable prototypes to test concepts with users before engineering started.</li></ul>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <p>Healthcare data is the part that can't leak, so I wrote the access and audit requirements before the integration, not after it. I used prototypes to validate an idea cheaply, then handed engineering a spec that had already survived contact with users.</p><p><a href="https://healthsmartv102-production.up.railway.app/#/authentication/sign-in" target="_blank" rel="noopener">Open the live app</a> (sign-in required).</p>
+            </div>
+          </div>
+          <div class="stats"><div class="stat"><b>2</b><span>systems connected: NovX and HealthSmart</span></div><div class="stat"><b>RAG</b><span>natural-language search over clinical documents</span></div></div>
+        </article>
+
+        <article class="proj" data-title="Tourlink">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">03</div><div><h3>Tourlink</h3><p class="mono kick">Product build · Ticketing platform</p></div></div>
+          <dl class="meta"><div><dt>Type</dt><dd>Multi-tenant B2B2C platform</dd></div><div><dt>Status</dt><dd>Contract, remote (UK)</dd></div><div><dt>Role</dt><dd>One of two developers</dd></div></dl>
+          <div class="proj-body">
+            <div>
+              <h4>Project brief</h4>
+              <p>A mobile-first platform connecting fans, artists, venues and promoters across booking, ticketing, production, contracts and payouts. I joined at the idea stage, and it is now a working product.</p>
+              <h5>What I built</h5>
+              <ul>
+                <li>A modular backend split into Read, Command, Payment, Webhook, Admin and real-time API services, on PostgreSQL and Redis.</li>
+                <li>A ticketing and allocation engine with multi-party ticket pools, time-bound reservations, seller-link attribution and QR tickets.</li>
+                <li>Offline door-scan reconciliation for live events.</li>
+                <li>Stripe Checkout and Connect for onboarding, payments and payouts.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <p>Payments and inventory are the parts that can't be wrong, so pricing is computed on the server, payment events arrive through webhooks, and a ledger records the money.</p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>2</b><span>developers on the build</span></div>
+            <div class="stat"><b>6</b><span>backend services</span></div>
+            <div class="stat"><b>0 to 1</b><span>joined at the idea stage</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-title="Documentation Agent">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">04</div><div><h3>Documentation Agent</h3><p class="mono kick">AI automation · Slack-native agent</p></div></div>
+          <dl class="meta"><div><dt>Type</dt><dd>RAG agent in Slack</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Stack</dt><dd>Groq, Postgres + pgvector, ClickUp, Gmail, Drive</dd></div></dl>
+          <div class="proj-body">
+            <div>
+              <h4>Project brief</h4>
+              <p>An agent that writes first drafts of investor, grant and customer documents from the company's live ClickUp, Gmail and Drive context, so a 10-person team spends its time reviewing instead of starting from a blank page.</p>
+              <h5>What I built</h5>
+              <ul><li>Retrieval over live company context, so figures come from source systems and not from the model's memory.</li><li>Drafts refined in passes, with a separate reviewer grading every pass.</li><li>Redaction of sensitive detail, then routing to a named reviewer in Slack.</li><li>A company-wide document index, an agent-status dashboard and a human approval step before anything is published.</li></ul>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <p>These documents go to investors and customers, so the rule is that a person approves before anything is published. When two silent failures went unnoticed (a free-tier host suspending the scheduler, and delayed cron runs being skipped), I moved scheduling to an external cron, added a dead-man's-switch watchdog, and made failures visible on the status dashboard.</p>
+            </div>
+          </div>
+          <div class="stats"><div class="stat"><b>140+</b><span>documents indexed</span></div><div class="stat"><b>~60 h</b><span>writing time saved, estimated, across a 10-person team</span></div><div class="stat"><b>67</b><span>automated tests</span></div><div class="stat"><b>2</b><span>silent failures found, then fixed</span></div></div>
+        </article>
+
+        <article class="proj" data-title="Momentum Agent">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">05</div><div><h3>Momentum Agent</h3><p class="mono kick">AI automation · Execution agent</p></div></div>
+          <dl class="meta"><div><dt>Type</dt><dd>Slack accountability bot</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Role</dt><dd>Product requirements, governance, build</dd></div></dl>
+          <div class="proj-body">
+            <div>
+              <h4>Project brief</h4>
+              <p>An internal execution agent that turns signals from Jira, ClickUp, Slack and meetings into one source-linked ledger of who committed to what, and nudges people when it slips.</p>
+              <h5>What I built</h5>
+              <ul><li>A commitment ledger where every entry links back to the message, ticket or meeting it came from.</li><li>Automated stand-ups and two-way Jira updates.</li><li>Escalation rules for commitments that go stale.</li><li>A staged shadow, review and live rollout, so its behaviour was checked before it acted on its own.</li></ul>
+            </div>
+            <div>
+              <h4>Approach</h4>
+              <p>A tool that chases people can do damage if it is wrong, so I wrote the governance first: what it may do alone, what needs a human, and when it escalates. It ran in shadow mode first, then under review, and only then live.</p>
+            </div>
+          </div>
+          <div class="stats"><div class="stat"><b>4</b><span>tools read: Jira, ClickUp, Slack, meetings</span></div><div class="stat"><b>3</b><span>rollout stages: shadow, review, live</span></div></div>
+        </article>
+
+        <article class="proj" data-title="Kalpi">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">06</div><div><h3>Kalpi, quant investing platform</h3><p class="mono kick">Internship · Jul to Aug 2026</p></div></div>
+          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
+            <p>Fintech Product Manager Intern. I audited the product (recommendations went into the Q3 roadmap), prototyped a WhatsApp portfolio assistant and an in-product chatbot in Lovable, and surveyed 30 users on trust and clarity. I analysed 200 investor portfolios (Sharpe ratio, volatility) and presented the results to the founder in a Power BI dashboard. I also wrote the BRD and PRD documents for the Chief of Staff and the developers.</p>
+            <div class="tags"><span class="tag">Product audit</span><span class="tag">User research</span><span class="tag">Power BI</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-title="Nomura">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">07</div><div><h3>Nomura: interest rate curves and trade analytics</h3><p class="mono kick">Hackathon</p></div></div>
+          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
+            <p>Built a C++ interest rate curve engine that bootstraps cash and swap discount curves, prices a fixed-for-floating swap, and computes DV01 sensitivities in closed form instead of bump-and-revalue, checked against finite differences. A second part analysed client trade toxicity and used an XGBoost model to drive a market-making quote strategy.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">XGBoost</span></div>
+          </div>
+        </article>
+
+        <article class="proj" data-title="Smaller builds">
+          <div class="proj-head"><div class="proj-num" aria-hidden="true">08</div><div><h3>Smaller builds</h3><p class="mono kick">Pipeline · Marketplace · Ads</p></div></div>
+          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
+            <h3>Automated report-to-deck pipeline</h3>
+            <p>An end-to-end pipeline in PowerShell and R that takes raw data to a finished PowerPoint deliverable with no human intervention, removing the manual data-pulling and slide-building steps.</p>
+            <div class="tags"><span class="tag">PowerShell</span><span class="tag">R</span><span class="tag">Automation</span></div>
+          </div>
+          <div class="sub">
+            <h3>B2B excess-inventory marketplace</h3>
+            <p>A marketplace concept for excess industrial inventory, with the buyer and supplier workflows defined from onboarding through order coordination. A concept and design project, not a shipped product.</p>
+            <div class="tags"><span class="tag">Marketplace</span><span class="tag">Workflow design</span></div>
+          </div>
+          <div class="sub">
+            <h3>Interactive Facebook ad game for PapaPawsome</h3>
+            <p>Designed a gamified Facebook ad campaign for PapaPawsome, a D2C pet-care brand, at The Teaser Company (2025). I worked out the interaction flow and engagement mechanics to raise click-through and participation.</p>
+            <div class="tags"><span class="tag">Gamified ads</span><span class="tag">D2C</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="thanks" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <p class="mono sec-label reveal">04 · Contact</p>
+      <h2 class="reveal" id="contact-h">Thank<br>you.</h2>
+      <p class="lede reveal" style="margin-top:24px">Let's work together. I'm looking for product and engineering roles where I can build, measure and explain what I found.</p>
+      <dl class="contact-list reveal">
+        <div><dt>Email</dt><dd><a href="mailto:f20231049@goa.bits-pilani.ac.in">f20231049@goa.bits-pilani.ac.in</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Tilak242" rel="noopener">github.com/Tilak242</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/tilak-kamani-842244292" rel="noopener">linkedin.com/in/tilak-kamani-842244292</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Tilak Kamani. Built by hand: one HTML file, no frameworks.</div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- hero: scroll-driven ghost text + pointer tilt ---- */
+  var hero = document.querySelector('.hero');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      if (!reduce) hero.style.setProperty('--sy', String(window.scrollY));
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  if (!reduce) {
+    var title = document.getElementById('heroTitle');
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      title.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+      title.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('pointerleave', function () {
+      title.style.setProperty('--ry', '0deg'); title.style.setProperty('--rx', '0deg');
+    });
+  }
+
+  /* ---- reveal on scroll + count-up ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in'); io.unobserve(en.target);
+        en.target.querySelectorAll('[data-count]').forEach(countUp);
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+  function countUp(el) {
+    if (reduce) return;
+    var end = parseInt(el.getAttribute('data-count'), 10), suf = el.getAttribute('data-suffix') || '';
+    var t0 = null, dur = 1200;
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v + suf;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = '0' + suf; requestAnimationFrame(step);
+  }
+
+  /* ---- tabs ---- */
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  function selectTab(t) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute('aria-selected', on ? 'true' : 'false');
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectTab(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      selectTab(n); n.focus();
+    });
+  });
+
+  /* ---- works ring ---- */
+  var stage = document.getElementById('stage'), ring = document.getElementById('ring');
+  var cards = [].slice.call(ring.querySelectorAll('.card'));
+  var sideBtns = [].slice.call(document.querySelectorAll('#side button'));
+  var projs = [].slice.call(document.querySelectorAll('#detail .proj'));
+  var counter = document.getElementById('counter');
+  var N = cards.length, step = 360 / N, pos = 0, idx = 0;
+  ring.style.setProperty('--step', step + 'deg');
+  function setRadius() {
+    var cw = parseFloat(getComputedStyle(ring).getPropertyValue('--cw')) || 220;
+    var r = Math.max(cw * 1.25 / (2 * Math.tan(Math.PI / N)), cw * 1.4);
+    ring.style.setProperty('--R', r.toFixed(0) + 'px');
+  }
+  setRadius(); window.addEventListener('resize', setRadius);
+
+  function mod(a) { return ((a % N) + N) % N; }
+  function render() {
+    ring.style.setProperty('--rot', (-pos * step) + 'deg');
+    idx = mod(pos);
+    cards.forEach(function (c, i) {
+      c.classList.toggle('active', i === idx);
+      c.setAttribute('aria-current', i === idx ? 'true' : 'false');
+      c.tabIndex = i === idx ? 0 : -1;
+    });
+    sideBtns.forEach(function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+    projs.forEach(function (p, i) { p.hidden = i !== idx; });
+    counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
+  }
+  function goTo(target) {
+    var diff = mod(target) - idx;
+    if (diff > N / 2) diff -= N;
+    if (diff < -N / 2) diff += N;
+    pos += diff; render();
+  }
+  function move(d) { pos += d; render(); }
+
+  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (!moved) goTo(i); }); });
+  sideBtns.forEach(function (b, i) { b.addEventListener('click', function () { goTo(i); }); });
+  document.getElementById('prev').addEventListener('click', function () { move(-1); });
+  document.getElementById('next').addEventListener('click', function () { move(1); });
+  stage.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { move(1); cards[idx].focus(); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { move(-1); cards[idx].focus(); e.preventDefault(); }
+  });
+
+  /* drag to rotate */
+  var down = false, startX = 0, startPos = 0, moved = false;
+  stage.addEventListener('pointerdown', function (e) {
+    down = true; moved = false; startX = e.clientX; startPos = pos;
+    stage.classList.add('drag');
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!down) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 6) moved = true;
+    var live = startPos - dx / 140;
+    ring.style.setProperty('--rot', (-live * step) + 'deg');
+  });
+  window.addEventListener('pointerup', function (e) {
+    if (!down) return;
+    down = false; stage.classList.remove('drag');
+    var dx = e.clientX - startX;
+    pos = Math.round(startPos - dx / 140);
+    render();
+    setTimeout(function () { moved = false; }, 0);
+  });
+  stage.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) { move(e.deltaX > 0 ? 1 : -1); e.preventDefault(); }
+  }, { passive: false });
+
+  document.querySelectorAll('[data-open]').forEach(function (a) {
+    a.addEventListener('click', function () { goTo(parseInt(a.getAttribute('data-open'), 10)); });
+  });
+
+  render();
+})();
+</script>
+
+
+</body>
+</html>
