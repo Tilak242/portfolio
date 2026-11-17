@@ -160,12 +160,43 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
 /* reveal */
 .js .reveal { opacity: 1; transform: none; }
 
+.sheets { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--paper-ink); }
+.sheets ul { list-style: none; margin: 0; padding: 0; }
+.sheets li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--paper-line); }
+.sheets a { color: #1f2fc4; font-weight: 600; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.sheets .mono { color: var(--paper-dim); white-space: nowrap; }
 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
 .feat { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--ink-2); display: flex; flex-direction: column; gap: 10px; }
 .feat h3 { font-size: 24px; letter-spacing: -.01em; }
 .feat p { margin: 0; color: #cfd2db; font-size: 15px; flex: 1; }
 .feat .mono { color: var(--glow); }
 @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr; } }
+
+.fp { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; padding: 56px 0; border-top: 1px solid var(--line); margin-top: 8px; }
+.fp.solo { grid-template-columns: 1fr; }
+.fp-txt { min-width: 0; }
+.fp .fp-kick { color: var(--glow); margin: 0 0 10px; }
+.fp h3 { font-size: clamp(28px, 3.6vw, 46px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 16px; }
+.fp h3.fp-sub { font-size: 22px; margin: 26px 0 8px; letter-spacing: -.01em; }
+.fp p { color: #d4d6de; font-size: 17px; margin: 0 0 14px; max-width: 640px; }
+.fp ul { margin: 0 0 14px; padding-left: 20px; color: #d4d6de; max-width: 640px; }
+.fp li { margin: 6px 0; }
+.fp h4 { margin: 20px 0 6px; }
+.fp h5 { font-size: 15px; margin: 18px 0 6px; font-weight: 700; color: var(--text); }
+.fp .fine { color: var(--dim); font-size: 14px; }
+.fp-meta { display: flex; flex-wrap: wrap; gap: 6px 26px; margin: 0 0 20px; padding: 0 0 16px; border-bottom: 1px solid var(--line); }
+.fp-meta div { min-width: 0; }
+.fp-meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.fp-meta dd { margin: 2px 0 0; font-size: 14px; color: #d4d6de; }
+.fp .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.fp .tag { border-color: var(--line); color: var(--text); }
+.fp .sheets { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.fp .sheets li { border-bottom-color: var(--line); }
+.fp .sheets a { color: var(--glow); }
+.fp .sheets .mono { color: var(--dim); }
+.fp-stats { position: sticky; top: 84px; }
+.fp-stats .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 900px) { .fp { grid-template-columns: 1fr; gap: 28px; padding: 44px 0; } .fp-stats { position: static; } }
 @media (max-width: 900px) {
   .profile-grid, .beyond { grid-template-columns: 1fr; gap: 36px; }
   .stage-wrap { grid-template-columns: 1fr; }
@@ -205,8 +236,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     <nav aria-label="Primary">
       <ul>
         <li class="opt"><a href="#journey">Where I've been</a></li>
-        <li class="opt"><a href="#featured">Featured</a></li>
-        <li><a href="#works">Works</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -223,7 +253,7 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
       <h1 id="heroTitle">Tilak<br>Kamani.</h1>
       <p class="lede">Product builder with a finance background. AI agents, working software and a habit of measuring what I ship.</p>
       <div class="actions">
-        <a class="btn solid" href="#works">View works</a>
+        <a class="btn solid" href="#projects">View projects</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -295,208 +325,133 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     </div>
   </section>
 
-  <section class="dark-sec" id="featured" aria-labelledby="featured-h">
+  <section class="dark-sec" id="projects" aria-labelledby="projects-h">
     <div class="wrap">
-      <p class="mono sec-label reveal">02 · Featured projects</p>
-      <h2 class="glow reveal" id="featured-h">Featured<br>projects</h2>
-      <div class="feat-grid reveal">
-        <div class="feat"><p class="mono">Healthcare AI · Live app</p><h3>Healthsmart AI</h3><p>Secure document exchange between two clinical systems, and natural-language search over clinical documents.</p><div class="actions"><a class="btn solid" href="#works" data-open="1">Details</a><a class="btn" href="https://healthsmartv102-production.up.railway.app/#/authentication/sign-in" target="_blank" rel="noopener">Live app ↗</a></div></div>
-        <div class="feat"><p class="mono">AI agent · Slack</p><h3>Documentation Agent</h3><p>Drafts investor, grant and customer documents from live company data, with a human approving each one. 140+ documents indexed.</p><div class="actions"><a class="btn solid" href="#works" data-open="3">Details</a></div></div>
-        <div class="feat"><p class="mono">AI agent · Jira</p><h3>Momentum Agent</h3><p>A source-linked ledger of commitments from Jira, ClickUp, Slack and meetings, rolled out in shadow, review and live stages.</p><div class="actions"><a class="btn solid" href="#works" data-open="4">Details</a></div></div>
-      </div>
-      <div class="actions reveal" style="margin-top:28px"><a class="btn" href="https://github.com/Tilak242" target="_blank" rel="noopener">More on GitHub ↗</a></div>
-    </div>
-  </section>
-
-  <section class="paper" id="works" aria-labelledby="works-h">
-    <div class="wrap">
-      <div class="works-top">
-        <div>
-          <p class="mono sec-label reveal">03 · Works</p>
-          <h2 class="reveal" id="works-h">Works '26</h2>
-        </div>
-        <p class="note reveal">Eight projects across AI, product and engineering. Drag the ring, use the arrows or pick from the list. The details open below.</p>
-      </div>
-
-      <div class="stage-wrap reveal">
-        <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Projects">
-          <div class="center-label" aria-hidden="true"><b>WORKS '26</b><span class="mono">Drag to cycle</span></div>
-          <div class="ring" id="ring">
-            <button class="card" type="button" style="--i:0;--h:235" data-n="01"><span class="k">AI · Voice</span><span><span class="t">GuruVoice</span><span class="s">Grounded multilingual voice tutor</span></span></button>
-            <button class="card" type="button" style="--i:1;--h:195" data-n="02"><span class="k">AI · Healthcare</span><span><span class="t">Healthsmart AI</span><span class="s">Clinical document exchange and RAG search</span></span></button>
-            <button class="card" type="button" style="--i:2;--h:18" data-n="03"><span class="k">Product build</span><span><span class="t">Tourlink</span><span class="s">Multi-tenant ticketing platform</span></span></button>
-            <button class="card" type="button" style="--i:3;--h:160" data-n="04"><span class="k">AI automation</span><span><span class="t">Documentation Agent</span><span class="s">Drafts that a person approves</span></span></button>
-            <button class="card" type="button" style="--i:4;--h:28" data-n="05"><span class="k">AI automation</span><span><span class="t">Momentum Agent</span><span class="s">Commitments tracked across tools</span></span></button>
-            <button class="card" type="button" style="--i:5;--h:275" data-n="06"><span class="k">Internship</span><span><span class="t">Kalpi</span><span class="s">Product audit and portfolio analytics</span></span></button>
-            <button class="card" type="button" style="--i:6;--h:350" data-n="07"><span class="k">Hackathon</span><span><span class="t">Nomura</span><span class="s">Rate curves and trade analytics</span></span></button>
-            <button class="card" type="button" style="--i:7;--h:300" data-n="08"><span class="k">Smaller builds</span><span><span class="t">Pipeline, marketplace, ads</span><span class="s">Three shorter projects</span></span></button>
-          </div>
-        </div>
-        <ul class="side" id="side" aria-label="Project list">
-          <li><button type="button">GuruVoice</button></li>
-          <li><button type="button">Healthsmart AI</button></li>
-          <li><button type="button">Tourlink</button></li>
-          <li><button type="button">Documentation Agent</button></li>
-          <li><button type="button">Momentum Agent</button></li>
-          <li><button type="button">Kalpi</button></li>
-          <li><button type="button">Nomura</button></li>
-          <li><button type="button">Smaller builds</button></li>
-        </ul>
-      </div>
-      <div class="controls">
-        <button class="ctl" id="prev" type="button" aria-label="Previous project">←</button>
-        <span class="mono" id="counter" aria-live="polite">01 / 08</span>
-        <button class="ctl" id="next" type="button" aria-label="Next project">→</button>
-      </div>
-
-      <div class="detail" id="detail" aria-live="polite">
-
-        <article class="proj" data-title="GuruVoice">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">01</div><div><h3>GuruVoice</h3><p class="mono kick">AI · Grounded voice tutor</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Voice RAG application</dd></div><div><dt>Status</dt><dd>Independent project</dd></div><div><dt>Stack</dt><dd>Python, FastAPI, Chroma, Gemini, Sarvam</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>A multilingual voice tutor for Indian students. You ask by voice in English or Hinglish. It answers only from a verified, curated corpus, speaks the answer, cites its source, and refuses when it can't ground an answer.</p>
-              <h5>What I built</h5>
-              <ul>
+      <p class="mono sec-label reveal">02 · Projects</p>
+      <h2 class="glow reveal" id="projects-h">Featured<br>projects</h2>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">AI · Grounded voice tutor</p>
+          <h3>GuruVoice</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Voice RAG application</dd></div><div><dt>Status</dt><dd>Independent project</dd></div><div><dt>Stack</dt><dd>Python, FastAPI, Chroma, Gemini, Sarvam</dd></div></dl>
+          <p>A multilingual voice tutor for Indian students. You ask by voice in English or Hinglish. It answers only from a verified, curated corpus, speaks the answer, cites its source, and refuses when it can't ground an answer.</p>
+          <h5>What I built</h5>
+          <ul>
                 <li>Retrieval over a curated corpus with Gemini embeddings and a local Chroma store.</li>
                 <li>Grounded generation that cites the source document and refuses rather than guesses.</li>
                 <li>Sarvam speech-to-text and text-to-speech, with live barge-in so you can interrupt an answer.</li>
                 <li>Follow-up rewriting for multi-turn questions, and a quiz tool that builds a quiz from the last verified answer.</li>
               </ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>I treated RAG as something to measure, not trust. I tuned against 86 development cases, then ran 18 new held-out cases once, after the system was frozen, and changed nothing based on the results. I also measured a reranker, found it added about 20 seconds of loading and scoring time, and turned it off in the live path.</p>
-              <p class="fine">Held-out limits, stated plainly: 2 of 11 answerable questions were wrongly refused, and 0 of 5 unanswerable ones were wrongly accepted.</p>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="stat"><b>11/11</b><span>top-1 retrieval, held-out set</span></div>
-            <div class="stat"><b>16/16</b><span>answers grounded, no hallucinations found</span></div>
-            <div class="stat"><b>-84%</b><span>end-to-end latency, 34.9s to 5.7s</span></div>
-            <div class="stat"><b>305</b><span>automated tests</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Healthsmart AI">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">02</div><div><h3>Healthsmart AI</h3><p class="mono kick">Product management · Healthcare AI</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Clinical workflow platform</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada), Sept 2026 to present</dd></div><div><dt>Role</dt><dd>Product Manager</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>Product work on HealthSmart, a clinical automation platform for clinics. I defined how it exchanges clinical documents with NovX and how staff search those documents in plain language.</p>
-              <h5>What I built</h5>
-              <ul><li>Secure REST APIs connecting NovX and HealthSmart for clinical document exchange.</li><li>Authentication, access-control and audit requirements for sensitive healthcare data.</li><li>A RAG-based search that lets users retrieve information from clinical documents in natural language.</li><li>Lovable prototypes to test concepts with users before engineering started.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Healthcare data is the part that can't leak, so I wrote the access and audit requirements before the integration, not after it. I used prototypes to validate an idea cheaply, then handed engineering a spec that had already survived contact with users.</p><p><a href="https://healthsmartv102-production.up.railway.app/#/authentication/sign-in" target="_blank" rel="noopener">Open the live app</a> (sign-in required).</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>2</b><span>systems connected: NovX and HealthSmart</span></div><div class="stat"><b>RAG</b><span>natural-language search over clinical documents</span></div></div>
-        </article>
-
-        <article class="proj" data-title="Tourlink">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">03</div><div><h3>Tourlink</h3><p class="mono kick">Product build · Ticketing platform</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Multi-tenant B2B2C platform</dd></div><div><dt>Status</dt><dd>Contract, remote (UK)</dd></div><div><dt>Role</dt><dd>One of two developers</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>A mobile-first platform connecting fans, artists, venues and promoters across booking, ticketing, production, contracts and payouts. I joined at the idea stage, and it is now a working product.</p>
-              <h5>What I built</h5>
-              <ul>
+          <h4>Approach</h4>
+          <p>I treated RAG as something to measure, not trust. I tuned against 86 development cases, then ran 18 new held-out cases once, after the system was frozen, and changed nothing based on the results. I also measured a reranker, found it added about 20 seconds of loading and scoring time, and turned it off in the live path.</p>
+          <p class="fine">Held-out limits, stated plainly: 2 of 11 answerable questions were wrongly refused, and 0 of 5 unanswerable ones were wrongly accepted.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>11/11</b><span>top-1 retrieval, held-out set</span></div><div class="stat"><b>16/16</b><span>answers grounded, no hallucinations found</span></div><div class="stat"><b>-84%</b><span>end-to-end latency, 34.9s to 5.7s</span></div><div class="stat"><b>305</b><span>automated tests</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Product management · Healthcare AI</p>
+          <h3>Healthsmart AI</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Clinical workflow platform</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada), Sept 2026 to present</dd></div><div><dt>Role</dt><dd>Product Manager</dd></div></dl>
+          <p>Product work on HealthSmart, a clinical automation platform for clinics. I defined how it exchanges clinical documents with NovX and how staff search those documents in plain language.</p>
+          <h5>What I built</h5>
+          <ul><li>Secure REST APIs connecting NovX and HealthSmart for clinical document exchange.</li><li>Authentication, access-control and audit requirements for sensitive healthcare data.</li><li>A RAG-based search that lets users retrieve information from clinical documents in natural language.</li><li>Lovable prototypes to test concepts with users before engineering started.</li></ul>
+          <h4>Approach</h4>
+          <p>Healthcare data is the part that can't leak, so I wrote the access and audit requirements before the integration, not after it. I used prototypes to validate an idea cheaply, then handed engineering a spec that had already survived contact with users.</p>
+          <p><a href="https://healthsmartv102-production.up.railway.app/#/authentication/sign-in" target="_blank" rel="noopener">Open the live app</a> (sign-in required).</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>2</b><span>systems connected: NovX and HealthSmart</span></div><div class="stat"><b>RAG</b><span>natural-language search over clinical documents</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Product build · Ticketing platform</p>
+          <h3>Tourlink</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Multi-tenant B2B2C platform</dd></div><div><dt>Status</dt><dd>Contract, remote (UK)</dd></div><div><dt>Role</dt><dd>One of two developers</dd></div></dl>
+          <p>A mobile-first platform connecting fans, artists, venues and promoters across booking, ticketing, production, contracts and payouts. I joined at the idea stage, and it is now a working product.</p>
+          <h5>What I built</h5>
+          <ul>
                 <li>A modular backend split into Read, Command, Payment, Webhook, Admin and real-time API services, on PostgreSQL and Redis.</li>
                 <li>A ticketing and allocation engine with multi-party ticket pools, time-bound reservations, seller-link attribution and QR tickets.</li>
                 <li>Offline door-scan reconciliation for live events.</li>
                 <li>Stripe Checkout and Connect for onboarding, payments and payouts.</li>
               </ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>Payments and inventory are the parts that can't be wrong, so pricing is computed on the server, payment events arrive through webhooks, and a ledger records the money.</p>
-            </div>
-          </div>
-          <div class="stats">
-            <div class="stat"><b>2</b><span>developers on the build</span></div>
-            <div class="stat"><b>6</b><span>backend services</span></div>
-            <div class="stat"><b>0 to 1</b><span>joined at the idea stage</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Documentation Agent">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">04</div><div><h3>Documentation Agent</h3><p class="mono kick">AI automation · Slack-native agent</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>RAG agent in Slack</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Stack</dt><dd>Groq, Postgres + pgvector, ClickUp, Gmail, Drive</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>An agent that writes first drafts of investor, grant and customer documents from the company's live ClickUp, Gmail and Drive context, so a 10-person team spends its time reviewing instead of starting from a blank page.</p>
-              <h5>What I built</h5>
-              <ul><li>Retrieval over live company context, so figures come from source systems and not from the model's memory.</li><li>Drafts refined in passes, with a separate reviewer grading every pass.</li><li>Redaction of sensitive detail, then routing to a named reviewer in Slack.</li><li>A company-wide document index, an agent-status dashboard and a human approval step before anything is published.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>These documents go to investors and customers, so the rule is that a person approves before anything is published. When two silent failures went unnoticed (a free-tier host suspending the scheduler, and delayed cron runs being skipped), I moved scheduling to an external cron, added a dead-man's-switch watchdog, and made failures visible on the status dashboard.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>140+</b><span>documents indexed</span></div><div class="stat"><b>~60 h</b><span>writing time saved, estimated, across a 10-person team</span></div><div class="stat"><b>67</b><span>automated tests</span></div><div class="stat"><b>2</b><span>silent failures found, then fixed</span></div></div>
-        </article>
-
-        <article class="proj" data-title="Momentum Agent">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">05</div><div><h3>Momentum Agent</h3><p class="mono kick">AI automation · Execution agent</p></div></div>
-          <dl class="meta"><div><dt>Type</dt><dd>Slack accountability bot</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Role</dt><dd>Product requirements, governance, build</dd></div></dl>
-          <div class="proj-body">
-            <div>
-              <h4>Project brief</h4>
-              <p>An internal execution agent that turns signals from Jira, ClickUp, Slack and meetings into one source-linked ledger of who committed to what, and nudges people when it slips.</p>
-              <h5>What I built</h5>
-              <ul><li>A commitment ledger where every entry links back to the message, ticket or meeting it came from.</li><li>Automated stand-ups and two-way Jira updates.</li><li>Escalation rules for commitments that go stale.</li><li>A staged shadow, review and live rollout, so its behaviour was checked before it acted on its own.</li></ul>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <p>A tool that chases people can do damage if it is wrong, so I wrote the governance first: what it may do alone, what needs a human, and when it escalates. It ran in shadow mode first, then under review, and only then live.</p>
-            </div>
-          </div>
-          <div class="stats"><div class="stat"><b>4</b><span>tools read: Jira, ClickUp, Slack, meetings</span></div><div class="stat"><b>3</b><span>rollout stages: shadow, review, live</span></div></div>
-        </article>
-
-        <article class="proj" data-title="Kalpi">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">06</div><div><h3>Kalpi, quant investing platform</h3><p class="mono kick">Internship · Jul to Aug 2026</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Fintech Product Manager Intern. I audited the product (recommendations went into the Q3 roadmap), prototyped a WhatsApp portfolio assistant and an in-product chatbot in Lovable, and surveyed 30 users on trust and clarity. I analysed 200 investor portfolios (Sharpe ratio, volatility) and presented the results to the founder in a Power BI dashboard. I also wrote the BRD and PRD documents for the Chief of Staff and the developers.</p>
-            <div class="tags"><span class="tag">Product audit</span><span class="tag">User research</span><span class="tag">Power BI</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Nomura">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">07</div><div><h3>Nomura: interest rate curves and trade analytics</h3><p class="mono kick">Hackathon</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <p>Built a C++ interest rate curve engine that bootstraps cash and swap discount curves, prices a fixed-for-floating swap, and computes DV01 sensitivities in closed form instead of bump-and-revalue, checked against finite differences. A second part analysed client trade toxicity and used an XGBoost model to drive a market-making quote strategy.</p>
-            <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">XGBoost</span></div>
-          </div>
-        </article>
-
-        <article class="proj" data-title="Smaller builds">
-          <div class="proj-head"><div class="proj-num" aria-hidden="true">08</div><div><h3>Smaller builds</h3><p class="mono kick">Pipeline · Marketplace · Ads</p></div></div>
-          <div class="sub" style="border-top:0;margin-top:20px;padding-top:0">
-            <h3>Automated report-to-deck pipeline</h3>
-            <p>An end-to-end pipeline in PowerShell and R that takes raw data to a finished PowerPoint deliverable with no human intervention, removing the manual data-pulling and slide-building steps.</p>
-            <div class="tags"><span class="tag">PowerShell</span><span class="tag">R</span><span class="tag">Automation</span></div>
-          </div>
-          <div class="sub">
-            <h3>B2B excess-inventory marketplace</h3>
-            <p>A marketplace concept for excess industrial inventory, with the buyer and supplier workflows defined from onboarding through order coordination. A concept and design project, not a shipped product.</p>
-            <div class="tags"><span class="tag">Marketplace</span><span class="tag">Workflow design</span></div>
-          </div>
-          <div class="sub">
-            <h3>Interactive Facebook ad game for PapaPawsome</h3>
-            <p>Designed a gamified Facebook ad campaign for PapaPawsome, a D2C pet-care brand, at The Teaser Company (2025). I worked out the interaction flow and engagement mechanics to raise click-through and participation.</p>
-            <div class="tags"><span class="tag">Gamified ads</span><span class="tag">D2C</span></div>
-          </div>
-        </article>
-
+          <h4>Approach</h4>
+          <p>Payments and inventory are the parts that can't be wrong, so pricing is computed on the server, payment events arrive through webhooks, and a ledger records the money.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>2</b><span>developers on the build</span></div><div class="stat"><b>6</b><span>backend services</span></div><div class="stat"><b>0 to 1</b><span>joined at the idea stage</span></div></div>
       </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">AI automation · Slack-native agent</p>
+          <h3>Documentation Agent</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>RAG agent in Slack</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Stack</dt><dd>Groq, Postgres + pgvector, ClickUp, Gmail, Drive</dd></div></dl>
+          <p>An agent that writes first drafts of investor, grant and customer documents from the company's live ClickUp, Gmail and Drive context, so a 10-person team spends its time reviewing instead of starting from a blank page.</p>
+          <h5>What I built</h5>
+          <ul><li>Retrieval over live company context, so figures come from source systems and not from the model's memory.</li><li>Drafts refined in passes, with a separate reviewer grading every pass.</li><li>Redaction of sensitive detail, then routing to a named reviewer in Slack.</li><li>A company-wide document index, an agent-status dashboard and a human approval step before anything is published.</li></ul>
+          <h4>Approach</h4>
+          <p>These documents go to investors and customers, so the rule is that a person approves before anything is published. When two silent failures went unnoticed (a free-tier host suspending the scheduler, and delayed cron runs being skipped), I moved scheduling to an external cron, added a dead-man's-switch watchdog, and made failures visible on the status dashboard.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>140+</b><span>documents indexed</span></div><div class="stat"><b>~60 h</b><span>writing time saved, estimated, across a 10-person team</span></div><div class="stat"><b>67</b><span>automated tests</span></div><div class="stat"><b>2</b><span>silent failures found, then fixed</span></div></div>
+      </div>
+      <div class="fp reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">AI automation · Execution agent</p>
+          <h3>Momentum Agent</h3>
+          <dl class="fp-meta"><div><dt>Type</dt><dd>Slack accountability bot</dd></div><div><dt>Status</dt><dd>Contract, remote (Canada)</dd></div><div><dt>Role</dt><dd>Product requirements, governance, build</dd></div></dl>
+          <p>An internal execution agent that turns signals from Jira, ClickUp, Slack and meetings into one source-linked ledger of who committed to what, and nudges people when it slips.</p>
+          <h5>What I built</h5>
+          <ul><li>A commitment ledger where every entry links back to the message, ticket or meeting it came from.</li><li>Automated stand-ups and two-way Jira updates.</li><li>Escalation rules for commitments that go stale.</li><li>A staged shadow, review and live rollout, so its behaviour was checked before it acted on its own.</li></ul>
+          <h4>Approach</h4>
+          <p>A tool that chases people can do damage if it is wrong, so I wrote the governance first: what it may do alone, what needs a human, and when it escalates. It ran in shadow mode first, then under review, and only then live.</p>
+          
+        </div>
+        <div class="stat-grid fp-stats"><div class="stat"><b>4</b><span>tools read: Jira, ClickUp, Slack, meetings</span></div><div class="stat"><b>3</b><span>rollout stages: shadow, review, live</span></div></div>
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Internship · Jul to Aug 2026</p>
+          <h3>Kalpi, quant investing platform</h3>
+          
+          <p>Fintech Product Manager Intern. I audited the product (recommendations went into the Q3 roadmap), prototyped a WhatsApp portfolio assistant and an in-product chatbot in Lovable, and surveyed 30 users on trust and clarity. I analysed 200 investor portfolios (Sharpe ratio, volatility) and presented the results to the founder in a Power BI dashboard. I also wrote the BRD and PRD documents for the Chief of Staff and the developers.</p>
+          <div class="tags"><span class="tag">Product audit</span><span class="tag">User research</span><span class="tag">Power BI</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Hackathon</p>
+          <h3>Nomura: interest rate curves and trade analytics</h3>
+          
+          <p>Built a C++ interest rate curve engine that bootstraps cash and swap discount curves, prices a fixed-for-floating swap, and computes DV01 sensitivities in closed form instead of bump-and-revalue, checked against finite differences. A second part analysed client trade toxicity and used an XGBoost model to drive a market-making quote strategy.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">XGBoost</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="fp solo reveal">
+        <div class="fp-txt">
+          <p class="mono fp-kick">Pipeline · Marketplace · Ads</p>
+          <h3>Smaller builds</h3>
+          
+          <h3 class="fp-sub">Automated report-to-deck pipeline</h3>
+          <p>An end-to-end pipeline in PowerShell and R that takes raw data to a finished PowerPoint deliverable with no human intervention, removing the manual data-pulling and slide-building steps.</p>
+          <div class="tags"><span class="tag">PowerShell</span><span class="tag">R</span><span class="tag">Automation</span></div>
+          <h3 class="fp-sub">B2B excess-inventory marketplace</h3>
+          <p>A marketplace concept for excess industrial inventory, with the buyer and supplier workflows defined from onboarding through order coordination. A concept and design project, not a shipped product.</p>
+          <div class="tags"><span class="tag">Marketplace</span><span class="tag">Workflow design</span></div>
+          <h3 class="fp-sub">Interactive Facebook ad game for PapaPawsome</h3>
+          <p>Designed a gamified Facebook ad campaign for PapaPawsome, a D2C pet-care brand, at The Teaser Company (2025). I worked out the interaction flow and engagement mechanics to raise click-through and participation.</p>
+          <div class="tags"><span class="tag">Gamified ads</span><span class="tag">D2C</span></div>
+          
+        </div>
+        
+      </div>
+      <div class="actions reveal" style="margin-top:12px"><a class="btn" href="https://github.com/Tilak242" target="_blank" rel="noopener">More on GitHub ↗</a></div>
     </div>
   </section>
 
@@ -593,81 +548,6 @@ footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--d
     });
   });
 
-  /* ---- works ring ---- */
-  var stage = document.getElementById('stage'), ring = document.getElementById('ring');
-  var cards = [].slice.call(ring.querySelectorAll('.card'));
-  var sideBtns = [].slice.call(document.querySelectorAll('#side button'));
-  var projs = [].slice.call(document.querySelectorAll('#detail .proj'));
-  var counter = document.getElementById('counter');
-  var N = cards.length, step = 360 / N, pos = 0, idx = 0;
-  ring.style.setProperty('--step', step + 'deg');
-  function setRadius() {
-    var cw = parseFloat(getComputedStyle(ring).getPropertyValue('--cw')) || 220;
-    var r = Math.max(cw * 1.25 / (2 * Math.tan(Math.PI / N)), cw * 1.4);
-    ring.style.setProperty('--R', r.toFixed(0) + 'px');
-  }
-  setRadius(); window.addEventListener('resize', setRadius);
-
-  function mod(a) { return ((a % N) + N) % N; }
-  function render() {
-    ring.style.setProperty('--rot', (-pos * step) + 'deg');
-    idx = mod(pos);
-    cards.forEach(function (c, i) {
-      c.classList.toggle('active', i === idx);
-      c.setAttribute('aria-current', i === idx ? 'true' : 'false');
-      c.tabIndex = i === idx ? 0 : -1;
-    });
-    sideBtns.forEach(function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
-    projs.forEach(function (p, i) { p.hidden = i !== idx; });
-    counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
-  }
-  function goTo(target) {
-    var diff = mod(target) - idx;
-    if (diff > N / 2) diff -= N;
-    if (diff < -N / 2) diff += N;
-    pos += diff; render();
-  }
-  function move(d) { pos += d; render(); }
-
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (!moved) goTo(i); }); });
-  sideBtns.forEach(function (b, i) { b.addEventListener('click', function () { goTo(i); }); });
-  document.getElementById('prev').addEventListener('click', function () { move(-1); });
-  document.getElementById('next').addEventListener('click', function () { move(1); });
-  stage.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { move(1); cards[idx].focus(); e.preventDefault(); }
-    if (e.key === 'ArrowLeft') { move(-1); cards[idx].focus(); e.preventDefault(); }
-  });
-
-  /* drag to rotate */
-  var down = false, startX = 0, startPos = 0, moved = false;
-  stage.addEventListener('pointerdown', function (e) {
-    down = true; moved = false; startX = e.clientX; startPos = pos;
-    stage.classList.add('drag');
-  });
-  window.addEventListener('pointermove', function (e) {
-    if (!down) return;
-    var dx = e.clientX - startX;
-    if (Math.abs(dx) > 6) moved = true;
-    var live = startPos - dx / 140;
-    ring.style.setProperty('--rot', (-live * step) + 'deg');
-  });
-  window.addEventListener('pointerup', function (e) {
-    if (!down) return;
-    down = false; stage.classList.remove('drag');
-    var dx = e.clientX - startX;
-    pos = Math.round(startPos - dx / 140);
-    render();
-    setTimeout(function () { moved = false; }, 0);
-  });
-  stage.addEventListener('wheel', function (e) {
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) { move(e.deltaX > 0 ? 1 : -1); e.preventDefault(); }
-  }, { passive: false });
-
-  document.querySelectorAll('[data-open]').forEach(function (a) {
-    a.addEventListener('click', function () { goTo(parseInt(a.getAttribute('data-open'), 10)); });
-  });
-
-  render();
 })();
 </script>
 
